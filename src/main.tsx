@@ -2,9 +2,11 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import ApplicationLayout from './layout/ApplicationLayout';
-import Home from './pages/Home';
 
 import './assets/styles/index.css';
+import HomePage from './pages/HomePage';
+import CustomerPage from './pages/CustomerPage';
+import WorksheetPage from './pages/WorksheetPage';
 
 export const router = createBrowserRouter([
   {
@@ -12,8 +14,13 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <HomePage />,
       },
+      {
+        path: '/customer',
+        element: <CustomerPage />,
+      },
+      { path: '/worksheet', element: <WorksheetPage /> },
     ],
   },
 ]);
