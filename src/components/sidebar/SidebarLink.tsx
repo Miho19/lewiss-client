@@ -5,10 +5,11 @@ export type SidebarLinkProps = {
   name: String;
   path: To;
   icon: LucideIcon;
+  closeSidebar: () => void;
 };
 
 function SidebarLink(prosp: SidebarLinkProps) {
-  const { name, path } = prosp;
+  const { name, path, closeSidebar } = prosp;
 
   function navLinkClasses({ isActive }: { isActive: boolean }) {
     const base =
@@ -20,7 +21,7 @@ function SidebarLink(prosp: SidebarLinkProps) {
   }
 
   return (
-    <NavLink className={navLinkClasses} to={path} end>
+    <NavLink className={navLinkClasses} to={path} end onClick={closeSidebar}>
       {name}
     </NavLink>
   );
