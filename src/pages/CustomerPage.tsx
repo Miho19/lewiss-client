@@ -1,5 +1,11 @@
+import CustomerSearch from '../components/customer/CustomerSearch';
+
 function CustomerPage() {
-  return <main className="flex-1 p-6 bg-black text-white">Customer</main>;
+  return (
+    <div className="w-full h-full flex flex-col items-center">
+      <CustomerSearch />
+    </div>
+  );
 }
 
 export default CustomerPage;

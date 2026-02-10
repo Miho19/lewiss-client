@@ -1,5 +1,5 @@
 function HomePage() {
-  return <main className="w-full flex">Home</main>;
+  return <div className="w-full flex">Home</div>;
 }
 
 export default HomePage;
