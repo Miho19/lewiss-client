@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from 'react';
+import { useState, type ChangeEvent, type SubmitEvent } from 'react';
 
 type CustomerSearchFormData = {
   familyName: string;
@@ -22,10 +22,18 @@ function CustomerSearchForm(props: Props) {
     setCustomerSearchData((prev) => ({ ...prev, [name]: value }));
   }
 
+  function handleOnSubmit(event: SubmitEvent<HTMLFormElement>) {
+    event.preventDefault();
+    console.log(customerSearchData);
+  }
+
   return (
     <div className="w-full flex flex-col md:items-center space-y-6">
       <h2 className="border-b border-black/5 py-6">Customer Search</h2>
-      <form className="grid grid-cols-5 gap-4 md:grid-cols-3 md:grid-rows-2 ">
+      <form
+        className="grid grid-cols-5 gap-4 md:grid-cols-3 md:grid-rows-2"
+        onSubmit={handleOnSubmit}
+      >
         <label htmlFor="familyName" className="col-span-2 md:col-span-1 md:row-start-1">
           Family name:
         </label>
