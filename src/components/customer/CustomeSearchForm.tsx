@@ -12,9 +12,7 @@ const initialCustomerSearchFormData: CustomerSearchFormData = {
   emailAddress: '',
 };
 
-type Props = {};
-
-function CustomerSearchForm(props: Props) {
+function CustomerSearchForm() {
   const [customerSearchData, setCustomerSearchData] = useState(initialCustomerSearchFormData);
 
   function handleInputOnChange(event: ChangeEvent<HTMLInputElement>) {
