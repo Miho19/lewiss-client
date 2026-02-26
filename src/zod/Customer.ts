@@ -9,12 +9,10 @@ const CustomerBasicInformationZodObject = z.object({
   email: z.email(),
 });
 
-const CustomerCreateZodObject = z.object(CustomerBasicInformationZodObject);
-
 const CustomerZodObject = z.object({
   id: z.uuid(),
   ...CustomerBasicInformationZodObject.shape,
 });
 
-export type CustomerCreateType = z.infer<typeof CustomerCreateZodObject>;
+export type CustomerCreateType = z.infer<typeof CustomerBasicInformationZodObject>;
 export type CustomerType = z.infer<typeof CustomerZodObject>;
