@@ -6,10 +6,13 @@ type Props = {
 function CustomerSearchResultElement(props: Props) {
   const { customer } = props;
 
-  const address = `${customer.street} ${customer.suburb} ${customer.city}`;
+  function onClickHandler() {}
 
   return (
-    <li className="flex flex-1 w-full flex-col px-3 pb-3 shadow-md sm:rounded-lg hover:bg-gray-100 transition-all delay-100 duration-100 ease-in-out group">
+    <li
+      onClick={onClickHandler}
+      className="flex flex-1 w-full flex-col px-3 pb-3 shadow-md sm:rounded-lg hover:bg-gray-100 transition-all delay-100 duration-100 ease-in-out group cursor-pointer"
+    >
       <div className="flex flex-1 w-full justify-between">
         <p className="text-lg">{customer.familyName}</p>
         <div className="flex flex-col max-w-28 min-w-44 text-wrap">

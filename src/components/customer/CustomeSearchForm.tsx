@@ -68,7 +68,7 @@ function CustomerSearchForm() {
 
         <button
           type="submit"
-          className="border border-black rounded-lg col-span-full md:col-span-1 md:w-24"
+          className="border border-black/5 rounded-lg col-span-full md:col-span-1 md:w-24 hover:bg-gray-100 transition-all delay-100 duration-100 ease-in-out cursor-pointer"
         >
           Submit
         </button>

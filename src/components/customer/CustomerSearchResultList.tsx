@@ -37,6 +37,8 @@ function CustomerSearchResultList() {
     <CustomerSearchResultElement key={c.id} customer={c} />
   ));
 
+  if (customerSearchResultElements.length === 0) return <div></div>;
+
   return (
     <div className="w-full flex flex-col md:items-center space-y-6">
       <h2 className=" py-6">Showing Results: {customerSearchResultElements.length}</h2>
