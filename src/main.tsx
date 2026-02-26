@@ -7,6 +7,7 @@ import './assets/styles/index.css';
 import HomePage from './pages/HomePage';
 import CustomerPage from './pages/CustomerPage';
 import WorksheetPage from './pages/WorksheetPage';
+import NewCustomerPage from './pages/NewCustomerPage';
 
 export const router = createBrowserRouter([
   {
@@ -14,11 +15,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        index: true,
         element: <HomePage />,
       },
       {
         path: '/customer',
-        element: <CustomerPage />,
+        children: [
+          { index: true, element: <CustomerPage /> },
+          { path: 'new', element: <NewCustomerPage /> },
+        ],
       },
       { path: '/worksheet', element: <WorksheetPage /> },
     ],

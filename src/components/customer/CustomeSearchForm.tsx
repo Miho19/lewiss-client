@@ -1,4 +1,6 @@
 import { useState, type ChangeEvent, type SubmitEvent } from 'react';
+import CustomerButton from './CustomerButton';
+import { Search } from 'lucide-react';
 
 type CustomerSearchFormData = {
   familyName: string;
@@ -29,15 +31,16 @@ function CustomerSearchForm() {
     <div className="w-full flex flex-col md:items-center space-y-6">
       <h2 className="border-b border-black/5 py-6">Customer Search</h2>
       <form
-        className="grid grid-cols-5 gap-4 md:grid-cols-3 md:grid-rows-2"
+        className="w-full grid grid-cols-5 gap-4 md:grid-cols-3 md:grid-rows-2"
         onSubmit={handleOnSubmit}
       >
         <label htmlFor="familyName" className="col-span-2 md:col-span-1 md:row-start-1">
           Family name:
         </label>
         <input
+          placeholder="Doe"
           id="familyName"
-          className="bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
+          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
           name="familyName"
           onChange={handleInputOnChange}
           value={customerSearchData.familyName}
@@ -48,7 +51,7 @@ function CustomerSearchForm() {
         </label>
         <input
           id="mobileNumber"
-          className="bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
+          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
           name="mobileNumber"
           onChange={handleInputOnChange}
           value={customerSearchData.mobileNumber}
@@ -59,19 +62,15 @@ function CustomerSearchForm() {
         </label>
         <input
           id="emailAddress"
-          className="bg-gray-100 border border-white rounded-lg ml-3 col-span-3  md:col-span-1 md:row-start-2 md:ml-0"
+          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3  md:col-span-1 md:row-start-2 md:ml-0"
           type="email"
           name="emailAddress"
           onChange={handleInputOnChange}
           value={customerSearchData.emailAddress}
         />
-
-        <button
-          type="submit"
-          className="border border-black/5 rounded-lg col-span-full md:col-span-1 md:w-24 hover:bg-gray-100 transition-all delay-100 duration-100 ease-in-out cursor-pointer"
-        >
-          Submit
-        </button>
+        <div className="col-span-5 md:col-span-1 md:col-start-3 md:flex md:justify-end md:w-full ">
+          <CustomerButton buttonText="Submit" icon={Search} onClickHandler={() => {}} />
+        </div>
       </form>
     </div>
   );
