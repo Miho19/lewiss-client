@@ -1,0 +1,30 @@
+import type { CustomerType } from '../../zod/Customer';
+
+type Props = {
+  customer: CustomerType;
+};
+function CustomerSearchResultElement(props: Props) {
+  const { customer } = props;
+
+  const address = `${customer.street} ${customer.suburb} ${customer.city}`;
+
+  return (
+    <li className="flex flex-1 w-full flex-col px-3 pb-3 shadow-md sm:rounded-lg hover:bg-gray-100 transition-all delay-100 duration-100 ease-in-out group">
+      <div className="flex flex-1 w-full justify-between">
+        <p className="text-lg">{customer.familyName}</p>
+        <div className="flex flex-col max-w-28 min-w-44 text-wrap">
+          <p className="text-sm text-right">
+            {customer.street} {customer.suburb}
+          </p>
+          <p className="w-full text-right text-sm">{customer.city}</p>
+        </div>
+      </div>
+      <div className="flex flex-1 justify-between">
+        <p className="text-sm">{customer.mobile}</p>
+        <p className="text-sm">{customer.email}</p>
+      </div>
+    </li>
+  );
+}
+
+export default CustomerSearchResultElement;

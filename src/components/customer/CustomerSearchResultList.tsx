@@ -1,85 +1,46 @@
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
 import type { CustomerType } from '../../zod/Customer';
-import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import CustomerSearchResultElement from './CustomerSearchResultElement';
 
-const columnHelper = createColumnHelper<CustomerType>();
-
-const columns = [
-  columnHelper.accessor('mobile', {
-    header: () => 'Mobile',
-    cell: (info) => info.getValue(),
-  }),
-
-  columnHelper.accessor('familyName', {
-    header: () => 'Family Name',
-    cell: (info) => info.getValue(),
-  }),
-
-  columnHelper.accessor('email', {
-    header: () => 'Email Address',
-    cell: (info) => info.getValue(),
-  }),
+const testCustomers: CustomerType[] = [
+  {
+    familyName: 'April',
+    street: 'street 1',
+    city: 'city 1',
+    suburb: 'suburb 1',
+    mobile: 'mobile 1',
+    email: 'email@address.com',
+    id: uuidv4(),
+  },
+  {
+    familyName: 'Woodward',
+    street: 'street 2',
+    city: 'city 2',
+    suburb: 'suburb 2',
+    mobile: 'mobile 2',
+    email: 'email2@address.com',
+    id: uuidv4(),
+  },
+  {
+    familyName: 'Todd',
+    street: 'street 3',
+    city: 'city 3',
+    suburb: 'suburb 3',
+    mobile: 'mobile 3',
+    email: 'email3@address.com',
+    id: uuidv4(),
+  },
 ];
 
 function CustomerSearchResultList() {
-  const [customers, setCustomers] = useState<CustomerType[]>([]);
-
-  const table = useReactTable({
-    data: customers,
-    columns,
-    defaultColumn: {
-      minSize: 60,
-      maxSize: 800,
-    },
-    columnResizeMode: 'onChange',
-    columnResizeDirection: 'ltr',
-    debugTable: true,
-    getCoreRowModel: getCoreRowModel(),
-  });
+  const customerSearchResultElements = testCustomers.map((c) => (
+    <CustomerSearchResultElement key={c.id} customer={c} />
+  ));
 
   return (
     <div className="w-full flex flex-col md:items-center space-y-6">
-      <h2 className="border-b border-black/5 py-6">Showing Results</h2>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className={` w-[${table.getCenterTotalSize()}px]`}>
-          <thead className="text-xs bg-gray-50">
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id} className="flex w-fit">
-                {headerGroup.headers.map((header) => (
-                  <th
-                    key={header.id}
-                    colSpan={header.colSpan}
-                    className={`w-[${header.getSize()}px] flex`}
-                  >
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(header.column.columnDef.header, header.getContext())}
-                    <div
-                      style={{
-                        transform: header.column.getIsResizing()
-                          ? `translateX(1 * (${table.getState().columnSizingInfo.deltaOffset ?? 0})px)`
-                          : ``,
-                      }}
-                      className="h-full cursor-col-resize border border-black w-5"
-                      onDoubleClick={() => {
-                        header.column.resetSize();
-                      }}
-                      onMouseDown={header.getResizeHandler()}
-                      onTouchStart={header.getResizeHandler()}
-                    ></div>
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
+      <h2 className=" py-6">Showing Results: {customerSearchResultElements.length}</h2>
+      <ul className="flex flex-col flex-1 space-y-5 ">{customerSearchResultElements}</ul>
     </div>
   );
 }
