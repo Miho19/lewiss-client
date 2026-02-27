@@ -7,22 +7,24 @@ export type SidebarLinkProps = {
   icon: LucideIcon;
   closeSidebar: () => void;
 };
+// h-15 text-left text-black p-5 hover:bg-gray-150 hover:cursor-pointer transition duration-300 ease-in-out border border-black/5 rounded-lg
 
 function SidebarLink(prosp: SidebarLinkProps) {
-  const { name, path, closeSidebar } = prosp;
+  const { name, path, icon: Icon, closeSidebar } = prosp;
 
   function navLinkClasses({ isActive }: { isActive: boolean }) {
     const base =
-      'h-15 text-left text-black p-5 hover:bg-black/85 hover:cursor-pointer hover:text-white transition duration-300 ease-in-out border border-black/5 rounded-lg';
+      'flex p-3 gap-x-5 rounded-lg cursor-pointer hover:shadow-md transition-all duration-300 ease-in-out border border-black/5';
 
-    const stateClasses = isActive ? ` font-bold bg-black/20` : ``;
+    const stateClasses = isActive ? ` font-semibold bg-black/5 shadow-md` : ``;
 
     return base + stateClasses;
   }
 
   return (
     <NavLink className={navLinkClasses} to={path} end onClick={closeSidebar}>
-      {name}
+      <Icon />
+      <p>{name}</p>
     </NavLink>
   );
 }
