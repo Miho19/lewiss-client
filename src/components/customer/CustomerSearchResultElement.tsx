@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router';
+import useCustomerSelect from '../../hooks/useCustomerSelect';
 import type { CustomerType } from '../../zod/Customer';
 
 type Props = {
@@ -5,8 +7,13 @@ type Props = {
 };
 function CustomerSearchResultElement(props: Props) {
   const { customer } = props;
+  const selectedCustomerContext = useCustomerSelect();
+  const navigator = useNavigate();
 
-  function onClickHandler() {}
+  function onClickHandler() {
+    selectedCustomerContext.selectCustomer(customer);
+    navigator('/worksheet');
+  }
 
   return (
     <li

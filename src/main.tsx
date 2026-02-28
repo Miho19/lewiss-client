@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import CustomerPage from './pages/CustomerPage';
 import WorksheetPage from './pages/WorksheetPage';
 import NewCustomerPage from './pages/NewCustomerPage';
+import CustomerSelectedProvider from './context/CustomerSelectedProvider';
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,8 @@ export const router = createBrowserRouter([
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <CustomerSelectedProvider>
+      <RouterProvider router={router} />
+    </CustomerSelectedProvider>
   </StrictMode>,
 );
