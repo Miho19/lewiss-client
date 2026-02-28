@@ -7,7 +7,6 @@ export type SidebarLinkProps = {
   icon: LucideIcon;
   closeSidebar: () => void;
 };
-// h-15 text-left text-black p-5 hover:bg-gray-150 hover:cursor-pointer transition duration-300 ease-in-out border border-black/5 rounded-lg
 
 function SidebarLink(prosp: SidebarLinkProps) {
   const { name, path, icon: Icon, closeSidebar } = prosp;
