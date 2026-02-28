@@ -22,7 +22,7 @@ function NewCustomerForm() {
 
   function handleOnSubmit() {}
   return (
-    <div className="w-full flex flex-col md:items-center space-y-6">
+    <div className="w-full flex flex-col md:items-center space-y-6 h-full shadow-md border-t border-black/5 px-3">
       <h2 className="border-b border-black/5 py-6">New Customer</h2>
       <form
         className="w-full grid grid-cols-5 gap-5 md:grid-cols-3 md:grid-rows-4"

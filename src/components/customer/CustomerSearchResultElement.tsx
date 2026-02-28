@@ -18,7 +18,7 @@ function CustomerSearchResultElement(props: Props) {
   return (
     <li
       onClick={onClickHandler}
-      className="flex flex-1 w-full flex-col px-3 pb-3 shadow-md sm:rounded-lg hover:bg-gray-100 transition-all duration-100 ease-in-out group cursor-pointer hover:-translate-y-3"
+      className="flex flex-1 w-full flex-col p-3 shadow-md sm:rounded-lg hover:bg-gray-100 transition-all duration-100 ease-in-out group cursor-pointer hover:-translate-y-3 border-t border-black/5"
     >
       <div className="flex flex-1 w-full justify-between">
         <p className="text-lg">{customer.familyName}</p>

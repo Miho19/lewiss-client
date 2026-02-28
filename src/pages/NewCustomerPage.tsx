@@ -9,7 +9,7 @@ function NewCustomerPage() {
     navigator('/customer');
   }
   return (
-    <div className="w-full h-full flex flex-col items-center">
+    <div className="w-full h-full flex flex-col items-center space-y-10">
       <div className="flex w-full justify-end">
         <CustomerButton
           buttonText="Back"
