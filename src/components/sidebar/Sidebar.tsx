@@ -17,18 +17,21 @@ function Sidebar(props: Props) {
       path: '/',
       icon: House,
       closeSidebar,
+      checkForCustomerSelected: false,
     },
     {
       name: 'Customer',
       path: '/customer',
       icon: CircleUser,
       closeSidebar,
+      checkForCustomerSelected: false,
     },
     {
       name: 'Worksheet',
       path: '/worksheet',
       icon: StickyNote,
       closeSidebar,
+      checkForCustomerSelected: true,
     },
   ];
 
@@ -39,6 +42,7 @@ function Sidebar(props: Props) {
       path={l.path}
       icon={l.icon}
       closeSidebar={closeSidebar}
+      checkForCustomerSelected={l.checkForCustomerSelected}
     />
   ));
 
