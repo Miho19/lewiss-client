@@ -6,7 +6,7 @@ type Props = {
   buttonText: string;
 };
 
-function CustomerButton(props: Props) {
+function ButtonGrey(props: Props) {
   const { onClickHandler, icon: Icon, buttonText } = props;
 
   return (
@@ -20,4 +20,4 @@ function CustomerButton(props: Props) {
   );
 }
 
-export default CustomerButton;
+export default ButtonGrey;

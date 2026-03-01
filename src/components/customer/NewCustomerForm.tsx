@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent } from 'react';
 import type { CustomerCreateType } from '../../zod/Customer';
-import CustomerButton from './CustomerButton';
+import CustomerButton from '../common/ButtonGrey';
 import { UserPlus } from 'lucide-react';
 
 const initialNewCustomerData: CustomerCreateType = {

@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type SubmitEvent } from 'react';
-import CustomerButton from './CustomerButton';
+import CustomerButton from '../common/ButtonGrey';
 import { Search } from 'lucide-react';
 
 export type CustomerSearchFormData = {

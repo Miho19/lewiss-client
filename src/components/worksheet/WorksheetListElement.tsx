@@ -1,5 +1,6 @@
 import { Hammer, FileClock, FileCheck, BadgeAlert, LoaderCircle } from 'lucide-react';
 import type { WorksheetStatusEnum, WorksheetType } from '../../zod/Worksheet';
+import { NavLink } from 'react-router';
 
 type Props = {
   worksheet: WorksheetType;
@@ -35,14 +36,16 @@ function WorksheetListElement(props: Props) {
       className="flex flex-1 w-full flex-col p-3 shadow-md sm:rounded-lg 
     hover:bg-gray-100 transition-all duration-100 ease-in-out group cursor-pointer hover:-translate-y-3 border-t border-black/5"
     >
-      <div className="w-full flex">
-        <p className="w-full text-left flex-1">{priceFormatted}</p>
-        {Icon}
-      </div>
+      <NavLink to={`/worksheet/${worksheet.id}`} end>
+        <div className="w-full flex">
+          <p className="w-full text-left flex-1">{priceFormatted}</p>
+          {Icon}
+        </div>
 
-      <p className="text-xs italic text-gray-400 border-t border-black/5 mt-2 pt-3">
-        {worksheet.id}
-      </p>
+        <p className="text-xs italic text-gray-400 border-t border-black/5 mt-2 pt-3">
+          {worksheet.id}
+        </p>
+      </NavLink>
     </li>
   );
 }

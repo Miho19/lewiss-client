@@ -6,9 +6,10 @@ import ApplicationLayout from './layout/ApplicationLayout';
 import './assets/styles/index.css';
 import HomePage from './pages/HomePage';
 import CustomerPage from './pages/CustomerPage';
-import WorksheetPage from './pages/WorksheetPage';
+import WorksheetHomePage from './pages/WorksheetHomePage';
 import NewCustomerPage from './pages/NewCustomerPage';
 import CustomerSelectedProvider from './context/CustomerSelectedProvider';
+import WorksheetPage from './pages/WorksheetPage';
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +27,13 @@ export const router = createBrowserRouter([
           { path: 'new', element: <NewCustomerPage /> },
         ],
       },
-      { path: '/worksheet', element: <WorksheetPage /> },
+      {
+        path: '/worksheet',
+        children: [
+          { index: true, element: <WorksheetHomePage /> },
+          { path: ':worksheetId', element: <WorksheetPage /> },
+        ],
+      },
     ],
   },
 ]);

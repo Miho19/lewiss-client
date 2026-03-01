@@ -1,5 +1,5 @@
 import { CircleArrowLeft } from 'lucide-react';
-import CustomerButton from '../components/customer/CustomerButton';
+import ButtonGrey from '../components/common/ButtonGrey';
 import { useNavigate } from 'react-router';
 import NewCustomerForm from '../components/customer/NewCustomerForm';
 
@@ -11,7 +11,7 @@ function NewCustomerPage() {
   return (
     <div className="w-full h-full flex flex-col items-center space-y-10">
       <div className="flex w-full justify-end">
-        <CustomerButton
+        <ButtonGrey
           buttonText="Back"
           icon={CircleArrowLeft}
           onClickHandler={backButtonOnClickHandler}
