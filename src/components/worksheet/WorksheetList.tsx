@@ -12,6 +12,7 @@ const testWorksheets: WorksheetType[] = [
     discount: 120.0,
     newBuild: false,
     calloutFee: 95,
+    status: 'New',
   },
   {
     id: uuidv4(),
@@ -20,6 +21,7 @@ const testWorksheets: WorksheetType[] = [
     discount: 350.0,
     newBuild: true,
     calloutFee: 95,
+    status: 'Processed',
   },
   {
     id: uuidv4(),
@@ -28,6 +30,16 @@ const testWorksheets: WorksheetType[] = [
     discount: 0,
     newBuild: false,
     calloutFee: 155,
+    status: 'Completed',
+  },
+  {
+    id: uuidv4(),
+    customerId: testCustomerId,
+    price: 3200.0,
+    discount: 0,
+    newBuild: false,
+    calloutFee: 0,
+    status: 'Error',
   },
 ];
 
