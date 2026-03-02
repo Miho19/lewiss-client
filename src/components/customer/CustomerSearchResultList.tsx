@@ -1,36 +1,5 @@
-import type { CustomerType } from '../../zod/Customer';
-import { v4 as uuidv4 } from 'uuid';
 import CustomerSearchResultElement from './CustomerSearchResultElement';
-
-const testCustomers: CustomerType[] = [
-  {
-    familyName: 'April',
-    street: 'street 1',
-    city: 'city 1',
-    suburb: 'suburb 1',
-    mobile: 'mobile 1',
-    email: 'email@address.com',
-    id: uuidv4(),
-  },
-  {
-    familyName: 'Woodward',
-    street: 'street 2',
-    city: 'city 2',
-    suburb: 'suburb 2',
-    mobile: 'mobile 2',
-    email: 'email2@address.com',
-    id: uuidv4(),
-  },
-  {
-    familyName: 'Todd',
-    street: 'street 3',
-    city: 'city 3',
-    suburb: 'suburb 3',
-    mobile: 'mobile 3',
-    email: 'email3@address.com',
-    id: uuidv4(),
-  },
-];
+import { testCustomers } from '../../utility/msw/customer-example';
 
 function CustomerSearchResultList() {
   const customerSearchResultElements = testCustomers.map((c) => (

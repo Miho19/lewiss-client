@@ -1,47 +1,5 @@
-import type { WorksheetType } from '../../zod/Worksheet';
-import { v4 as uuidv4 } from 'uuid';
+import { testWorksheets } from '../../utility/msw/worksheet-example';
 import WorksheetListElement from './WorksheetListElement';
-
-const testCustomerId = uuidv4();
-
-const testWorksheets: WorksheetType[] = [
-  {
-    id: uuidv4(),
-    customerId: testCustomerId,
-    price: 5000.0,
-    discount: 120.0,
-    newBuild: false,
-    calloutFee: 95,
-    status: 'New',
-  },
-  {
-    id: uuidv4(),
-    customerId: testCustomerId,
-    price: 1200.4,
-    discount: 350.0,
-    newBuild: true,
-    calloutFee: 95,
-    status: 'Processed',
-  },
-  {
-    id: uuidv4(),
-    customerId: testCustomerId,
-    price: 640.66,
-    discount: 0,
-    newBuild: false,
-    calloutFee: 155,
-    status: 'Completed',
-  },
-  {
-    id: uuidv4(),
-    customerId: testCustomerId,
-    price: 3200.0,
-    discount: 0,
-    newBuild: false,
-    calloutFee: 0,
-    status: 'Error',
-  },
-];
 
 function WorksheetList() {
   const worksheetListElements = testWorksheets.map((w) => (
