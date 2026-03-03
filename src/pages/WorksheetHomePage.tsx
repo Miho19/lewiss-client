@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import ButtonGrey from '../components/common/ButtonGrey';
 import { useEffect } from 'react';
 import WorksheetList from '../components/worksheet/WorksheetList';
+import CustomerInformation from '../components/customer/CustomerInformation';
 
 function WorksheetHomePage() {
   const selectedCustomer = useCustomerSelect();
@@ -29,6 +30,9 @@ function WorksheetHomePage() {
         />
       </div>
       <div className="w-full h-full flex flex-col space-y-6 shadow-md px-3 border-t border-black/5">
+        <div className="flex w-full justify-end pt-3">
+          <CustomerInformation />
+        </div>
         <WorksheetList />
       </div>
     </div>

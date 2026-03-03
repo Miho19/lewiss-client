@@ -3,6 +3,7 @@ import ButtonGrey from '../components/common/ButtonGrey';
 import { CircleArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
 import useCustomerSelect from '../hooks/useCustomerSelect';
+import { testWorksheet } from '../utility/msw/worksheet-example';
 
 type WorksheetPageParams = {
   worksheetId: string;
@@ -20,9 +21,11 @@ function WorksheetPage() {
   }, []);
 
   function backButtonOnClickHandler() {
-    navigator('/customer');
+    navigator('/worksheet');
   }
-  // use react query to get worksheet from backend...
+  // use react query to get worksheet from backend..
+  // not really sure what I want to do with customer bubble yet
+  const worksheet = testWorksheet;
 
   return (
     <div className="w-full h-full flex flex-col items-center space-y-10">

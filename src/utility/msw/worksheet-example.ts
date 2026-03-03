@@ -18,15 +18,6 @@ export const testWorksheets: WorksheetType[] = [
   {
     id: uuidv4(),
     customerId: testCustomerId,
-    price: 5000.0,
-    discount: 120.0,
-    newBuild: false,
-    calloutFee: 95,
-    status: 'New',
-  },
-  {
-    id: uuidv4(),
-    customerId: testCustomerId,
     price: 1200.4,
     discount: 350.0,
     newBuild: true,

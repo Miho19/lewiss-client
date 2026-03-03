@@ -3,7 +3,7 @@ import { testCustomers } from '../../utility/msw/customer-example';
 
 function CustomerSearchResultList() {
   const customerSearchResultElements = testCustomers.map((c) => (
-    <CustomerSearchResultElement key={c.id} customer={c} />
+    <CustomerSearchResultElement key={c.id} customer={c} hoverable={true} />
   ));
 
   if (customerSearchResultElements.length === 0) return <div></div>;
