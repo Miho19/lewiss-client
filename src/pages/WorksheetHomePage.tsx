@@ -29,7 +29,7 @@ function WorksheetHomePage() {
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <div className="w-full h-full flex flex-col space-y-6 px-3">
+      <div className="w-full h-full flex flex-col space-y-6">
         <CustomerInformation />
         <WorksheetList />
       </div>

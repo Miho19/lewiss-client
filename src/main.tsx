@@ -10,6 +10,7 @@ import WorksheetHomePage from './pages/WorksheetHomePage';
 import NewCustomerPage from './pages/NewCustomerPage';
 import CustomerSelectedProvider from './context/CustomerSelectedProvider';
 import WorksheetPage from './pages/WorksheetPage';
+import EditCustomerPage from './pages/EditCustomerPage';
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <CustomerPage /> },
           { path: 'new', element: <NewCustomerPage /> },
+          { path: ':customerId/edit', element: <EditCustomerPage /> },
         ],
       },
       {
