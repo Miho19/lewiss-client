@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import useCustomerSelect from '../../hooks/useCustomerSelect';
-import { useNavigate } from 'react-router';
-import ButtonGrey from '../common/ButtonGrey';
+import { NavLink, useNavigate } from 'react-router';
 import { UserPen } from 'lucide-react';
 
 function CustomerInformation() {
@@ -16,10 +15,6 @@ function CustomerInformation() {
     return <div></div>;
   }
 
-  function editButtonOnClickHandler() {
-    navigator(`/customer/${customerSelected.customer?.id}/edit`);
-  }
-
   return (
     <div className="flex w-full flex-col space-y-3 shadow-md px-3 pt-3 border-t border-black/5 pb-6">
       <div className="w-full flex flex-col space-y-4 p-3">
@@ -30,7 +25,13 @@ function CustomerInformation() {
         <p className="text-sm">{customerSelected.customer.email}</p>
       </div>
       <div className="flex w-full justify-end">
-        <ButtonGrey buttonText="Edit" onClickHandler={editButtonOnClickHandler} icon={UserPen} />
+        <NavLink
+          to={`/customer/edit`}
+          className={`flex flex-1 w-full border space-x-3 md:max-w-32 md:min-w-32 border-black/5 bg-gray-50 rounded-lg p-2 cursor-pointer group-hover:bg-gray-200 hover:-translate-y-1 group transition-all delay-75 duration-75 ease-in-out md:justify-around`}
+        >
+          <UserPen />
+          <p>Edit</p>
+        </NavLink>
       </div>
     </div>
   );

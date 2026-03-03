@@ -3,7 +3,7 @@ import type { CustomerCreateType } from '../../zod/Customer';
 import CustomerButton from '../common/ButtonGrey';
 import { UserPlus } from 'lucide-react';
 
-const initialNewCustomerData: CustomerCreateType = {
+export const initialNewCustomerData: CustomerCreateType = {
   familyName: '',
   street: '',
   city: '',
