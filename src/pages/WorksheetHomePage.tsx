@@ -21,7 +21,7 @@ function WorksheetHomePage() {
   }, [selectedCustomer]);
 
   return (
-    <div className="w-full h-full flex flex-col items-center space-y-10">
+    <div className="w-full h-full flex flex-col items-center space-y-10 md:items-center md:justify-center">
       <div className="flex w-full justify-end">
         <ButtonGrey
           buttonText="Back"
@@ -29,10 +29,8 @@ function WorksheetHomePage() {
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <div className="w-full h-full flex flex-col space-y-6 shadow-md px-3 border-t border-black/5">
-        <div className="flex w-full justify-end pt-3">
-          <CustomerInformation />
-        </div>
+      <div className="w-full h-full flex flex-col space-y-6 px-3">
+        <CustomerInformation />
         <WorksheetList />
       </div>
     </div>

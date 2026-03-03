@@ -11,7 +11,7 @@ function CustomerPage() {
 
   return (
     <div className="w-full h-full flex flex-col items-center space-y-7">
-      <div className="flex flex-1 w-full justify-end md:pr-3">
+      <div className="flex w-full justify-end md:pr-3">
         <ButtonGrey onClickHandler={newButtonOnClickHandler} buttonText="New" icon={Plus} />
       </div>
       <CustomerSearch />
