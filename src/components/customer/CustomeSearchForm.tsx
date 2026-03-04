@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type SubmitEvent } from 'react';
-import CustomerButton from '../common/ButtonGrey';
 import { Search } from 'lucide-react';
+import ButtonGrey from '../common/ButtonGrey';
 
 export type CustomerSearchFormData = {
   familyName: string;
@@ -26,7 +26,6 @@ function CustomerSearchForm() {
     event.preventDefault();
     console.log(customerSearchData);
   }
-
   return (
     <div className="w-full flex flex-col md:items-center space-y-6">
       <h2 className="border-b border-black/5 py-6">Customer Search</h2>
@@ -69,7 +68,7 @@ function CustomerSearchForm() {
           value={customerSearchData.email}
         />
         <div className="col-span-5 md:col-span-1 md:col-start-3 md:flex md:justify-end md:w-full ">
-          <CustomerButton buttonText="Submit" icon={Search} onClickHandler={() => {}} />
+          <ButtonGrey buttonText="Submit" icon={Search} onClickHandler={() => {}} />
         </div>
       </form>
     </div>

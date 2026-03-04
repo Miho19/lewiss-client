@@ -1,8 +1,8 @@
-import { CircleArrowLeft } from 'lucide-react';
+import { CircleArrowLeft, UserPen } from 'lucide-react';
 import ButtonGrey from '../components/common/ButtonGrey';
 import { useNavigate } from 'react-router';
 
-import { useEffect, useState, type ChangeEvent } from 'react';
+import { useEffect, useState, type ChangeEvent, type SubmitEventHandler } from 'react';
 import useCustomerSelect from '../hooks/useCustomerSelect';
 import type { CustomerEditType } from '../zod/Customer';
 
@@ -33,6 +33,10 @@ function EditCustomerPage() {
     setCustomerEdit((prev) => ({ ...prev, [name]: value }));
   }
 
+  const onSubmitHandler: SubmitEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="w-full h-full flex flex-col items-center space-y-10 md:items-center">
       <div className="flex w-full justify-end">
@@ -42,11 +46,14 @@ function EditCustomerPage() {
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <h2 className="text-lg border-b border-black/5 pb-5 md:text-center w-full">
+      <h2 className="text-lg border-b border-black/5 pb-5 w-full md:text-center md:w-fit">
         {selectedCustomer.customer?.familyName}
       </h2>
-      <form className="w-full flex flex-col shadow-md border border-black/5 p-3 space-y-6 md:items-center">
-        <div className="w-full flex justify-between items-center md:justify-evenly">
+      <form
+        className="w-full flex flex-col shadow-md border border-black/5 p-3 space-y-6 md:w-fit md:space-x-24"
+        onSubmit={onSubmitHandler}
+      >
+        <div className="flex w-full justify-between">
           <label htmlFor="mobile">Mobile</label>
           <input
             name="mobile"
@@ -56,7 +63,7 @@ function EditCustomerPage() {
             className="pl-3 bg-gray-100 border border-white rounded-lg"
           />
         </div>
-        <div className="w-full flex justify-between items-center md:justify-evenly">
+        <div className="flex w-full justify-between">
           <label htmlFor="email">Email</label>
           <input
             name="email"
@@ -67,7 +74,7 @@ function EditCustomerPage() {
           />
         </div>
 
-        <div className="w-full flex justify-between items-center md:justify-evenly">
+        <div className="flex w-full justify-between">
           <label htmlFor="street">Street</label>
           <input
             name="street"
@@ -78,7 +85,7 @@ function EditCustomerPage() {
           />
         </div>
 
-        <div className="w-full flex justify-between items-center md:justify-evenly">
+        <div className="flex w-full justify-between">
           <label htmlFor="suburb">Suburb</label>
           <input
             name="suburb"
@@ -89,7 +96,7 @@ function EditCustomerPage() {
           />
         </div>
 
-        <div className="w-full flex justify-between items-center md:justify-evenly">
+        <div className="flex w-full justify-between">
           <label htmlFor="city">City</label>
           <input
             name="city"
@@ -98,6 +105,9 @@ function EditCustomerPage() {
             onChange={onChangeHandler}
             className="pl-3 bg-gray-100 border border-white rounded-lg"
           />
+        </div>
+        <div className="w-full flex md:justify-end">
+          <ButtonGrey buttonText="Submit" icon={UserPen} onClickHandler={() => {}} />
         </div>
       </form>
     </div>

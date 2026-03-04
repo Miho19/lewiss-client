@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from 'react';
+import React, { useState, type ChangeEvent, type SubmitEventHandler } from 'react';
 import type { CustomerCreateType } from '../../zod/Customer';
 import CustomerButton from '../common/ButtonGrey';
 import { UserPlus } from 'lucide-react';
@@ -20,13 +20,16 @@ function NewCustomerForm() {
     setNewCustomerData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleOnSubmit() {}
+  const onSubmitHandler: SubmitEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="w-full flex flex-col md:items-center space-y-6 h-full shadow-md border-t border-black/5 px-3">
       <h2 className="border-b border-black/5 py-6">New Customer</h2>
       <form
         className="w-full grid grid-cols-5 gap-5 md:grid-cols-3 md:grid-rows-4"
-        onSubmit={handleOnSubmit}
+        onSubmit={onSubmitHandler}
       >
         <label htmlFor="familyName" className="col-span-2 md:col-span-1 md:row-start-1">
           Family name:
