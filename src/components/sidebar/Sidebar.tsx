@@ -49,7 +49,10 @@ function Sidebar(props: Props) {
   return (
     <>
       {!!isSidebarOpen && (
-        <div className="fixed inset-0 bg-black/50 md:hidden z-30" onClick={closeSidebar}></div>
+        <div
+          className="fixed inset-0 bg-black/50 md:hidden z-30 cursor-pointer"
+          onClick={closeSidebar}
+        ></div>
       )}
       <aside
         className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? `translate-x-0` : `-translate-x-full`} transition duration-300 ease-in-out bg-white w-64 p-4 flex flex-col space-y-4 z-40 md:translate-x-0 md:relative shadow-md pt-6 px-3 gap-y-6`}

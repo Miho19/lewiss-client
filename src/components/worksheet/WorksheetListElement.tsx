@@ -1,6 +1,7 @@
 import { Hammer, FileClock, FileCheck, BadgeAlert, LoaderCircle } from 'lucide-react';
 import type { WorksheetStatusEnum, WorksheetType } from '../../zod/Worksheet';
 import { NavLink } from 'react-router';
+import { currencyFormat } from '../../utility/CurrencyFormattor';
 
 type Props = {
   worksheet: WorksheetType;
@@ -24,10 +25,7 @@ function getStatusIcon(status: WorksheetStatusEnum) {
 function WorksheetListElement(props: Props) {
   const { worksheet } = props;
 
-  const priceFormatted = worksheet.price.toLocaleString('en-us', {
-    style: 'currency',
-    currency: 'NZD',
-  });
+  const priceFormatted = currencyFormat(worksheet.price);
 
   const Icon = getStatusIcon(worksheet.status);
 

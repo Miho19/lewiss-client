@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-const StatusEnums = z.enum(['New', 'Processed', 'Completed', 'Error']);
+const StatusEnums = z.enum(['New', 'Processed', 'Completed', 'Error'] as const);
 
 export const WorksheetZodObject = z.object({
   id: z.uuidv4(),

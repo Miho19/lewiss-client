@@ -4,6 +4,7 @@ import { CircleArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
 import useCustomerSelect from '../hooks/useCustomerSelect';
 import { testWorksheet } from '../utility/msw/worksheet-example';
+import WorksheetPricingInformation from '../components/worksheet/WorksheetPricingInformation';
 
 type WorksheetPageParams = {
   worksheetId: string;
@@ -37,9 +38,7 @@ function WorksheetPage() {
         />
       </div>
 
-      <div className="w-full h-full flex flex-col space-y-6 shadow-md px-3 border-t border-black/5">
-        {params.worksheetId}
-      </div>
+      <WorksheetPricingInformation worksheet={worksheet} />
     </div>
   );
 }

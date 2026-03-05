@@ -15,7 +15,7 @@ function ApplicationLayout() {
       <Sidebar isSidebarOpen={isSidebarOpen} closeSidebar={closeSidebar} />
       <header className="bg-black/50 shadow-md p-4 flex justify-between items-center md:hidden">
         <button
-          className="md:hidden"
+          className="md:hidden h-full cursor-pointer"
           onClick={() => {
             setIsSidebarOpen(!isSidebarOpen);
           }}
