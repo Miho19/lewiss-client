@@ -1,4 +1,6 @@
 import * as z from 'zod';
+import type { KineticsCellularProductEntryType } from './KineticsCellular';
+import type { KineticsRollerProductEntryType } from './KineticsRoller';
 
 const fitTypeEnum = z.enum(['Inside', 'Outside'] as const);
 const fixingToEnum = z.enum(['wood'] as const);
@@ -21,3 +23,5 @@ export const BaseProductCreateZodObject = z.object({
   operationType: z.string(),
   operationSide: operationSideEnum,
 });
+
+export type ProductEntryTypes = KineticsCellularProductEntryType | KineticsRollerProductEntryType;

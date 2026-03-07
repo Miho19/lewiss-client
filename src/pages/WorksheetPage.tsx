@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import useCustomerSelect from '../hooks/useCustomerSelect';
 import { testWorksheet } from '../utility/msw/worksheet-example';
 import WorksheetPricingInformation from '../components/worksheet/WorksheetPricingInformation';
+import ProductList from '../components/product/ProductList';
 
 type WorksheetPageParams = {
   worksheetId: string;
@@ -39,6 +40,7 @@ function WorksheetPage() {
       </div>
 
       <WorksheetPricingInformation worksheet={worksheet} />
+      <ProductList worksheet={worksheet} />
     </div>
   );
 }
