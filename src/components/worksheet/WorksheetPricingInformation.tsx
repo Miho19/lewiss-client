@@ -8,7 +8,7 @@ function WorksheetPricingInformation(props: Props) {
   const { worksheet } = props;
 
   return (
-    <div className="w-full flex flex-col space-y-3 shadow-md px-3 py-6 border-t border-black/5 md:w-fit">
+    <div className="w-full flex flex-col space-y-3 shadow-md px-3 py-6 border-t border-black/5 md:w-96">
       <div className="flex w-full justify-between md:space-x-24">
         <p>Call out Fee</p>
         <p>{currencyFormat(worksheet.calloutFee)}</p>
