@@ -12,7 +12,7 @@ function ProductListElement(props: Props) {
 
   return (
     <li
-      className={`flex flex-1 w-full p-3 shadow-md sm:rounded-lg hover:bg-gray-100 hover:-translate-y-3 cursor-pointer transition-all duration-100 ease-in-out group border-t border-black/5`}
+      className={`flex w-full p-3 shadow-md rounded-lg hover:bg-gray-100 hover:-translate-y-3 cursor-pointer transition-all duration-100 ease-in-out group border-t border-black/5`}
     >
       <NavLink
         to={`/workshet/${product.worksheetId}/${product.id}`}
@@ -32,7 +32,10 @@ function ProductListElement(props: Props) {
           </div>
           <div className="w-full flex flex-col">
             <p className="text-sm">{product.fabric}</p>
-            <p className="text-sm">{product.operationType}</p>
+            <div className="w-full flex justify-between">
+              <p className="text-sm">{product.operationType}</p>
+              <p className="text-sm">{product.operationSide.charAt(0).toUpperCase()}</p>
+            </div>
           </div>
         </div>
 
