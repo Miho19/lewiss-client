@@ -1,10 +1,10 @@
 import { CircleArrowLeft } from 'lucide-react';
-import useCustomerSelect from '../hooks/useCustomerSelect';
+import useCustomerSelect from '../../hooks/useCustomerSelect';
 import { useNavigate } from 'react-router';
-import ButtonGrey from '../components/common/ButtonGrey';
+import ButtonGrey from '../../components/common/ButtonGrey';
 import { useEffect } from 'react';
-import WorksheetList from '../components/worksheet/WorksheetList';
-import CustomerInformation from '../components/customer/CustomerInformation';
+import WorksheetList from '../../components/worksheet/WorksheetList';
+import CustomerInformation from '../../components/customer/CustomerInformation';
 
 function WorksheetHomePage() {
   const selectedCustomer = useCustomerSelect();

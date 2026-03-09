@@ -1,7 +1,7 @@
 import { Plus } from 'lucide-react';
-import CustomerSearch from '../components/customer/CustomerSearch';
+import CustomerSearch from '../../components/customer/CustomerSearch';
 import { useNavigate } from 'react-router';
-import ButtonGrey from '../components/common/ButtonGrey';
+import ButtonGrey from '../../components/common/ButtonGrey';
 
 function CustomerPage() {
   const navigator = useNavigate();

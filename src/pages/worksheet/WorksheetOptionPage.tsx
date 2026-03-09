@@ -1,15 +1,17 @@
 import { CircleArrowLeft } from 'lucide-react';
 import ButtonGrey from '../../components/common/ButtonGrey';
 import { useNavigate } from 'react-router';
-import NewCustomerForm from '../../components/customer/NewCustomerForm';
+import WorksheetOptionForm from '../../components/worksheet/WorksheetOptionForm';
 
-function NewCustomerPage() {
+function WorksheetOptionPage() {
   const navigator = useNavigate();
+
   function backButtonOnClickHandler() {
-    navigator('/customer');
+    navigator(-1);
   }
+
   return (
-    <div className="w-full h-full flex flex-col items-center space-y-10">
+    <div className="w-full h-full flex flex-col space-y-6">
       <div className="flex w-full justify-end">
         <ButtonGrey
           buttonText="Back"
@@ -17,9 +19,9 @@ function NewCustomerPage() {
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <NewCustomerForm />
+      <WorksheetOptionForm />
     </div>
   );
 }
 
-export default NewCustomerPage;
+export default WorksheetOptionPage;

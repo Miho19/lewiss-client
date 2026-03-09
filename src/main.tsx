@@ -4,13 +4,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import ApplicationLayout from './layout/ApplicationLayout';
 
 import './assets/styles/index.css';
-import HomePage from './pages/HomePage';
-import CustomerPage from './pages/CustomerPage';
-import WorksheetHomePage from './pages/WorksheetHomePage';
-import NewCustomerPage from './pages/NewCustomerPage';
+import HomePage from './pages/home/HomePage';
+import CustomerPage from './pages/customer/CustomerPage';
+import WorksheetHomePage from './pages/worksheet/WorksheetHomePage';
+import NewCustomerPage from './pages/customer/NewCustomerPage';
 import CustomerSelectedProvider from './context/CustomerSelectedProvider';
-import WorksheetPage from './pages/WorksheetPage';
-import EditCustomerPage from './pages/EditCustomerPage';
+import WorksheetPage from './pages/worksheet/WorksheetPage';
+import EditCustomerPage from './pages/customer/EditCustomerPage';
+import WorksheetAdditionalPage from './pages/worksheet/WorksheetAdditionalPage';
+
+import WorksheetOptionPage from './pages/worksheet/WorksheetOptionPage';
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +37,8 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <WorksheetHomePage /> },
           { path: ':worksheetId', element: <WorksheetPage /> },
+          { path: ':worksheetId/additional', element: <WorksheetAdditionalPage /> },
+          { path: ':worksheetId/option', element: <WorksheetOptionPage /> },
         ],
       },
     ],

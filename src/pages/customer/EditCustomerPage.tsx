@@ -1,10 +1,10 @@
 import { CircleArrowLeft, UserPen } from 'lucide-react';
-import ButtonGrey from '../components/common/ButtonGrey';
+import ButtonGrey from '../../components/common/ButtonGrey';
 import { useNavigate } from 'react-router';
 
 import { useEffect, useState, type ChangeEvent, type SubmitEventHandler } from 'react';
-import useCustomerSelect from '../hooks/useCustomerSelect';
-import type { CustomerEditType } from '../zod/Customer';
+import useCustomerSelect from '../../hooks/useCustomerSelect';
+import type { CustomerEditType } from '../../zod/Customer';
 
 function EditCustomerPage() {
   const navigator = useNavigate();
