@@ -40,7 +40,7 @@ function WorksheetPage() {
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <div className="w-full flex flex-col space-y-6 lg:space-y-0 lg:flex-row lg:justify-evenly">
+      <div className="w-full flex flex-col space-y-6 items-center 2xl:space-y-0 2xl:flex-row 2xl:justify-evenly 2xl:items-start">
         <WorksheetPricingInformation worksheet={worksheet} />
         <WorksheetOption worksheet={worksheet} />
         <WorksheetAdditionalProduct worksheet={worksheet} />

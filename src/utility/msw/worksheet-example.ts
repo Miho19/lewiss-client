@@ -11,6 +11,11 @@ export const testWorksheet: WorksheetType = {
   newBuild: false,
   calloutFee: 95,
   status: 'New',
+  remotes: 1,
+  heightAssessment: false,
+  smartLinkHub: false,
+  usbChargers: 1,
+  discountName: 'None',
 };
 
 export const testWorksheets: WorksheetType[] = [
@@ -23,6 +28,11 @@ export const testWorksheets: WorksheetType[] = [
     newBuild: true,
     calloutFee: 95,
     status: 'Processed',
+    remotes: 2,
+    heightAssessment: false,
+    smartLinkHub: false,
+    usbChargers: 1,
+    discountName: 'None',
   },
   {
     id: uuidv4(),
@@ -32,6 +42,11 @@ export const testWorksheets: WorksheetType[] = [
     newBuild: false,
     calloutFee: 155,
     status: 'Completed',
+    remotes: 1,
+    heightAssessment: false,
+    smartLinkHub: false,
+    usbChargers: 1,
+    discountName: 'None',
   },
   {
     id: uuidv4(),
@@ -41,5 +56,10 @@ export const testWorksheets: WorksheetType[] = [
     newBuild: false,
     calloutFee: 0,
     status: 'Error',
+    remotes: 0,
+    heightAssessment: false,
+    smartLinkHub: false,
+    usbChargers: 1,
+    discountName: 'None',
   },
 ];
