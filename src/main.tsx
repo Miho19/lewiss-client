@@ -14,6 +14,7 @@ import EditCustomerPage from './pages/customer/EditCustomerPage';
 import WorksheetAdditionalPage from './pages/worksheet/WorksheetAdditionalPage';
 
 import WorksheetOptionPage from './pages/worksheet/WorksheetOptionPage';
+import WorksheetProductPage from './pages/worksheet/WorksheetProductPage';
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,7 @@ export const router = createBrowserRouter([
           { path: ':worksheetId', element: <WorksheetPage /> },
           { path: ':worksheetId/additional', element: <WorksheetAdditionalPage /> },
           { path: ':worksheetId/option', element: <WorksheetOptionPage /> },
+          { path: ':worksheetId/product/:productId', element: <WorksheetProductPage /> },
         ],
       },
     ],

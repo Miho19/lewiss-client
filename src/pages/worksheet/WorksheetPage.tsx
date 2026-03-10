@@ -27,8 +27,7 @@ function WorksheetPage() {
   function backButtonOnClickHandler() {
     navigator('/worksheet');
   }
-  // use react query to get worksheet from backend..
-  // not really sure what I want to do with customer bubble yet
+  // use react query to get worksheet from backend.. using params...
   const worksheet = testWorksheet;
 
   return (

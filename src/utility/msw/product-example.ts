@@ -2,7 +2,7 @@ import type { KineticsCellularProductEntryType } from '../../zod/KineticsCellula
 import { testWorksheet } from './worksheet-example';
 import { v4 as uuidv4 } from 'uuid';
 
-const testProduct1: KineticsCellularProductEntryType = {
+export const testProduct1: KineticsCellularProductEntryType = {
   headrailColour: 'White',
   sideChannelColour: 'White',
   worksheetId: testWorksheet.id,

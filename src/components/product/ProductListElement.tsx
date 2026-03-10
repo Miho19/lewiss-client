@@ -15,7 +15,7 @@ function ProductListElement(props: Props) {
       className={`flex w-full p-3 shadow-md rounded-lg hover:bg-gray-100 hover:-translate-y-3 cursor-pointer transition-all duration-100 ease-in-out group border-t border-black/5`}
     >
       <NavLink
-        to={`/workshet/${product.worksheetId}/${product.id}`}
+        to={`/worksheet/${product.worksheetId}/product/${product.id}`}
         className={`w-full flex flex-col space-y-3`}
       >
         <div className="w-full flex justify-between border-b border-black/5 pb-3">
