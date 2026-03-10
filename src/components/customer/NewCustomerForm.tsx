@@ -1,7 +1,7 @@
 import React, { useState, type ChangeEvent, type SubmitEventHandler } from 'react';
 import type { CustomerCreateType } from '../../zod/Customer';
-import CustomerButton from '../common/ButtonGrey';
 import { UserPlus } from 'lucide-react';
+import ButtonGrey from '../common/ButtonGrey';
 
 export const initialNewCustomerData: CustomerCreateType = {
   familyName: '',
@@ -106,7 +106,7 @@ function NewCustomerForm() {
         />
 
         <div className="col-span-5 md:col-span-1 md:col-start-3 md:flex md:justify-end md:w-full ">
-          <CustomerButton buttonText="Create" icon={UserPlus} onClickHandler={() => {}} />
+          <ButtonGrey buttonText="Create" icon={UserPlus} onClickHandler={() => {}} />
         </div>
       </form>
     </div>

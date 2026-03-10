@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from 'react';
+import { useEffect, useState, type ChangeEvent, type SubmitEvent } from 'react';
 import {
   WorksheetBuildTypeEnum,
   WorksheetCalloutFeeOptions,
@@ -6,6 +6,9 @@ import {
   type WorksheetOptionFormDataType,
 } from '../../zod/Worksheet';
 import { testWorksheet } from '../../utility/msw/worksheet-example';
+import ButtonGrey from '../common/ButtonGrey';
+import { Save } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 const initialFormData: WorksheetOptionFormDataType = {
   discountName: 'None',
@@ -16,6 +19,8 @@ const initialFormData: WorksheetOptionFormDataType = {
 function WorksheetOptionForm() {
   const [optionFormData, setOptionFormData] =
     useState<WorksheetOptionFormDataType>(initialFormData);
+
+  const navigator = useNavigate();
 
   // Get Worksheet from react query
   const worksheet = testWorksheet;
@@ -35,6 +40,12 @@ function WorksheetOptionForm() {
     });
   }
 
+  function onSubmitHandler(event: SubmitEvent<HTMLFormElement>) {
+    event.preventDefault();
+    console.log(optionFormData);
+    navigator(`/worksheet/${worksheet.id}`);
+  }
+
   const discountOptionList = WorksheetDiscountNameEnum.options.map((discount) => (
     <option>{discount}</option>
   ));
@@ -46,8 +57,8 @@ function WorksheetOptionForm() {
   const calloutFeeOptionList = WorksheetCalloutFeeOptions.map((n) => <option>{n}</option>);
 
   return (
-    <div className="w-full flex flex-col shadow-md px-3 py-6 border-t border-black/5 md:96">
-      <form className="w-full flex flex-col space-y-10">
+    <div className="w-full flex flex-col shadow-md px-3 py-6 border-t border-black/5 md:w-96">
+      <form className="w-full flex flex-col space-y-10" onSubmit={onSubmitHandler}>
         <div className="w-full flex justify-between items-center">
           <label htmlFor="buildType">Build</label>
           <select
@@ -85,6 +96,10 @@ function WorksheetOptionForm() {
           >
             {calloutFeeOptionList}
           </select>
+        </div>
+
+        <div className="flex w-full justify-end">
+          <ButtonGrey buttonText="Save" icon={Save} onClickHandler={() => {}} />
         </div>
       </form>
     </div>

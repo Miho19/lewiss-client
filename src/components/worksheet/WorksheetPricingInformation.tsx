@@ -16,6 +16,8 @@ function WorksheetPricingInformation(props: Props) {
 
   return (
     <div className="w-full flex flex-col space-y-3 shadow-md px-3 py-6 border-t border-black/5 md:w-96">
+      <p className="text-xs italic text-gray-400 border-b border-black/5 pb-3">{worksheet.id}</p>
+
       <div className="flex w-full justify-between md:space-x-24">
         <p>Blind Total</p>
         <p>{currencyFormat(blindTotal)}</p>
