@@ -10,6 +10,8 @@ type Props = {
 function ProductListElement(props: Props) {
   const { product, index } = props;
 
+  if (typeof product === 'undefined') return <></>;
+
   return (
     <li
       className={`flex w-full p-3 shadow-md rounded-lg hover:bg-gray-100 hover:-translate-y-3 cursor-pointer transition-all duration-100 ease-in-out group border-t border-black/5`}

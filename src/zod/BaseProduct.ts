@@ -8,10 +8,10 @@ import type {
   KineticsRollerProductEntryType,
 } from './KineticsRoller';
 
-const fitTypeEnum = z.enum(['Inside', 'Outside'] as const);
-const fixingToEnum = z.enum(['wood'] as const);
-const productTypeEnum = z.enum(['Kinetics Roller', 'Kinetics Cellular'] as const);
-const operationSideEnum = z.enum(['Left', 'Right'] as const);
+export const ProductFitTypeEnum = z.enum(['Inside', 'Outside'] as const);
+export const ProductFixingToEnum = z.enum(['wood'] as const);
+export const ProductTypeEnum = z.enum(['Kinetics Roller', 'Kinetics Cellular'] as const);
+export const ProductOperationSideEnum = z.enum(['Left', 'Right'] as const);
 
 export const BaseProductCreateZodObject = z.object({
   // common between all product types
@@ -21,20 +21,21 @@ export const BaseProductCreateZodObject = z.object({
   height: z.number(),
   reveal: z.number(),
   installHeight: z.number(),
-  fitType: fitTypeEnum,
-  fixingTo: fixingToEnum,
+  fitType: ProductFitTypeEnum,
+  fixingTo: ProductFixingToEnum,
 
   // dependent on product type
 
-  productType: productTypeEnum,
+  productType: ProductTypeEnum,
   fabric: z.string(),
   operationType: z.string(),
-  operationSide: operationSideEnum,
+  operationSide: ProductOperationSideEnum,
   remoteNumber: z.number(),
   remoteChannel: z.number(),
 });
 
 export type ProductEntryTypes = KineticsCellularProductEntryType | KineticsRollerProductEntryType;
+
 export type ProductCreateTypes =
   | KineticsCellularProductCreateType
   | KineticsRollerProductCreateType;
