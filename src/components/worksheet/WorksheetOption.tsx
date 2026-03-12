@@ -11,7 +11,7 @@ function WorksheetOption(props: Props) {
   const { worksheet } = props;
 
   return (
-    <div className="w-full flex flex-col space-y-3 shadow-md px-3 py-6 border-t border-black/5 md:w-96 justify-evenly">
+    <div className="w-full flex flex-col space-y-3 shadow-md px-6 py-6 border-t border-black/5 md:w-lg justify-evenly">
       <div className="w-full flex justify-between">
         <p>Build</p>
         <p>{worksheet.buildType}</p>

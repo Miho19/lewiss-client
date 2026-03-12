@@ -9,6 +9,7 @@ import { testWorksheet } from '../../utility/msw/worksheet-example';
 import ButtonGrey from '../common/ButtonGrey';
 import { Save } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import FormSelectInput from '../common/FormSelectInput';
 
 const initialFormData: WorksheetOptionFormDataType = {
   discountName: 'None',
@@ -46,58 +47,32 @@ function WorksheetOptionForm() {
     navigator(`/worksheet/${worksheet.id}`);
   }
 
-  const discountOptionList = WorksheetDiscountNameEnum.options.map((discount) => (
-    <option>{discount}</option>
-  ));
-
-  const buildTypeOptionList = WorksheetBuildTypeEnum.options.map((buildType) => (
-    <option>{buildType}</option>
-  ));
-
-  const calloutFeeOptionList = WorksheetCalloutFeeOptions.map((n) => <option>{n}</option>);
-
   return (
-    <div className="w-full flex flex-col shadow-md px-3 py-6 border-t border-black/5 md:w-96">
+    <div className="w-full flex flex-col shadow-md px-6 py-6 border-t border-black/5 md:w-lg">
       <form className="w-full flex flex-col space-y-10" onSubmit={onSubmitHandler}>
-        <div className="w-full flex justify-between items-center">
-          <label htmlFor="buildType">Build</label>
-          <select
-            name="buildType"
-            id="buildType"
-            value={optionFormData.buildType}
-            onChange={onChangeHandlerSelect}
-            className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
-          >
-            {buildTypeOptionList}
-          </select>
-        </div>
+        <FormSelectInput
+          labelValue="Build"
+          onSelectHandler={onChangeHandlerSelect}
+          options={WorksheetBuildTypeEnum.options}
+          selectName="buildType"
+          value={optionFormData.buildType}
+        />
 
-        <div className="w-full flex justify-between items-center">
-          <label htmlFor="discountName">Discount</label>
-          <select
-            name="discountName"
-            id="discountName"
-            value={optionFormData.discountName}
-            onChange={onChangeHandlerSelect}
-            className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
-          >
-            {discountOptionList}
-          </select>
-        </div>
+        <FormSelectInput
+          labelValue="Discount"
+          onSelectHandler={onChangeHandlerSelect}
+          options={WorksheetDiscountNameEnum.options}
+          selectName="discountName"
+          value={optionFormData.discountName}
+        />
 
-        <div className="w-full flex justify-between items-center">
-          <label htmlFor="call">Call out Fee</label>
-          <select
-            name="calloutFee"
-            id="calloutFee"
-            value={optionFormData.calloutFee}
-            onChange={onChangeHandlerSelect}
-            className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
-          >
-            {calloutFeeOptionList}
-          </select>
-        </div>
-
+        <FormSelectInput
+          labelValue="Call out Fee"
+          onSelectHandler={onChangeHandlerSelect}
+          options={WorksheetCalloutFeeOptions}
+          selectName="calloutFee"
+          value={optionFormData.calloutFee}
+        />
         <div className="flex w-full justify-end">
           <ButtonGrey buttonText="Save" icon={Save} onClickHandler={() => {}} />
         </div>

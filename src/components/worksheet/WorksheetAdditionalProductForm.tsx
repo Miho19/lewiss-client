@@ -4,6 +4,7 @@ import { testWorksheet } from '../../utility/msw/worksheet-example';
 import ButtonGrey from '../common/ButtonGrey';
 import { Save } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import FormSelectInput from '../common/FormSelectInput';
 
 const initialFormData: WorksheetAdditionalFormDataType = {
   remotes: 0,
@@ -47,7 +48,7 @@ function WorksheetAdditionalProductForm() {
   }
 
   return (
-    <div className="w-full flex flex-col shadow-md px-3 py-6 border-t border-black/5 md:w-96">
+    <div className="w-full flex flex-col shadow-md px-6 py-6 border-t border-black/5 md:w-lg">
       <form className="w-full flex flex-col space-y-10" onSubmit={onSubmitHandler}>
         <div className="w-full flex justify-between items-center">
           <label htmlFor="remotes">Remotes</label>
@@ -59,7 +60,7 @@ function WorksheetAdditionalProductForm() {
             min={0}
             value={additionalProductFormData.remotes}
             onChange={onChangeHandlerInput}
-            className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
+            className="w-50 pl-3 pr-3 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
           />
         </div>
 
@@ -73,37 +74,25 @@ function WorksheetAdditionalProductForm() {
             min={0}
             value={additionalProductFormData.usbChargers}
             onChange={onChangeHandlerInput}
-            className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
+            className="w-50 pl-3 pr-3 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
           />
         </div>
 
-        <div className="w-full flex justify-between items-center">
-          <label htmlFor="heightAssessment">Height Assessment</label>
-          <select
-            name="heightAssessment"
-            id="heightAssessment"
-            value={additionalProductFormData.heightAssessment === true ? 'Yes' : 'No'}
-            onChange={onChangeHandlerSelect}
-            className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
-          >
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
+        <FormSelectInput
+          labelValue="Height Assessment"
+          onSelectHandler={onChangeHandlerSelect}
+          value={additionalProductFormData.heightAssessment === true ? 'Yes' : 'No'}
+          options={['Yes', 'No']}
+          selectName="heightAssessment"
+        />
 
-        <div className="w-full flex justify-between items-center">
-          <label htmlFor="smartLinkHub">SmartLink Hub</label>
-          <select
-            name="smartLinkHub"
-            id="smartLinkHub"
-            value={additionalProductFormData.smartLinkHub === true ? 'Yes' : 'No'}
-            onChange={onChangeHandlerSelect}
-            className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
-          >
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
+        <FormSelectInput
+          labelValue="SmartLink Hub"
+          onSelectHandler={onChangeHandlerSelect}
+          value={additionalProductFormData.smartLinkHub === true ? 'Yes' : 'No'}
+          options={['Yes', 'No']}
+          selectName="smartLinkHub"
+        />
 
         <div className="flex w-full justify-end">
           <ButtonGrey buttonText="Save" icon={Save} onClickHandler={() => {}} />

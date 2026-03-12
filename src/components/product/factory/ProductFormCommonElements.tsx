@@ -4,6 +4,7 @@ import {
   ProductFixingToEnum,
   type ProductEntryTypes,
 } from '../../../zod/BaseProduct';
+import FormSelectInput from '../../common/FormSelectInput';
 
 type Props = {
   product: ProductEntryTypes;
@@ -31,11 +32,6 @@ function ProductFormCommonElements(props: Props) {
     });
   }
 
-  const fitTypeOptions = ProductFitTypeEnum.options.map((fitType) => <option>{fitType}</option>);
-  const fixingToOptions = ProductFixingToEnum.options.map((fixingTo) => (
-    <option>{fixingTo}</option>
-  ));
-
   return (
     <>
       <div className="w-full flex justify-between items-center">
@@ -48,13 +44,13 @@ function ProductFormCommonElements(props: Props) {
           maxLength={32}
           value={product.location}
           onChange={onChangeHandlerInput}
-          className="p-2 pl-3 bg-gray-100 border border-white rounded-lg w-50"
+          className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
         />
       </div>
 
       <div className="w-full flex justify-between items-center">
         <label htmlFor="width">Width</label>
-        <div className="flex w-50 items-center justify-between bg-gray-100 border border-white rounded-lg">
+        <div className="flex justify-between w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer">
           <input
             name="width"
             id="width"
@@ -63,15 +59,15 @@ function ProductFormCommonElements(props: Props) {
             max={3600}
             value={product.width}
             onChange={onChangeHandlerInput}
-            className="p-2 pl-3 flex-1"
+            className="w-full"
           />
-          <span className="border-l border-gray-300 px-3">mm</span>
+          <span className="border-l border-gray-300 px-3 w-6">mm</span>
         </div>
       </div>
 
       <div className="w-full flex justify-between items-center">
         <label htmlFor="height">Height</label>
-        <div className="flex w-50 items-center justify-between bg-gray-100 border border-white rounded-lg">
+        <div className="flex justify-between w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer">
           <input
             name="height"
             id="height"
@@ -80,15 +76,15 @@ function ProductFormCommonElements(props: Props) {
             max={3600}
             value={product.height}
             onChange={onChangeHandlerInput}
-            className="p-2 pl-3 flex-1"
+            className="w-full"
           />
-          <span className="border-l border-gray-300 px-3">mm</span>
+          <span className="border-l border-gray-300 px-3 w-6">mm</span>
         </div>
       </div>
 
       <div className="w-full flex justify-between items-center">
         <label htmlFor="reveal">Reveal</label>
-        <div className="flex w-50 items-center justify-between bg-gray-100 border border-white rounded-lg">
+        <div className="flex justify-between w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer">
           <input
             name="reveal"
             id="reveal"
@@ -97,15 +93,15 @@ function ProductFormCommonElements(props: Props) {
             max={3600}
             value={product.reveal}
             onChange={onChangeHandlerInput}
-            className="p-2 pl-3 flex-1"
+            className="w-full"
           />
-          <span className="border-l border-gray-300 px-3">mm</span>
+          <span className="border-l border-gray-300 px-3 w-6">mm</span>
         </div>
       </div>
 
       <div className="w-full flex justify-between items-center">
         <label htmlFor="installHeight">Install Height</label>
-        <div className="flex w-50 items-center justify-between bg-gray-100 border border-white rounded-lg">
+        <div className="flex justify-between w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer">
           <input
             name="installHeight"
             id="installHeight"
@@ -114,47 +110,29 @@ function ProductFormCommonElements(props: Props) {
             max={3600}
             value={product.installHeight}
             onChange={onChangeHandlerInput}
-            className="p-2 pl-3 flex-1"
+            className="w-full"
           />
-          <span className="border-l border-gray-300 px-3">mm</span>
+          <span className="border-l border-gray-300 px-3 w-6">mm</span>
         </div>
       </div>
 
-      <div className="w-full flex justify-between items-center">
-        <label htmlFor="fitType">Fit</label>
-        <div className="relative w-50">
-          <select className="appearance-none w-full pl-3 pr-8 py-2 text-sm border border-gray-300 rounded shadow-sm focus:outline-none focus:border-blue-500 cursor-pointer">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
+      <FormSelectInput
+        labelValue="Fit"
+        onSelectHandler={onChangeHandlerSelect}
+        options={ProductFitTypeEnum.options}
+        selectName="fitType"
+        value={product.fitType}
+      />
 
-          <svg
-            className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-black h-full w-5"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
+      <FormSelectInput
+        labelValue="Fixing To"
+        onSelectHandler={onChangeHandlerSelect}
+        options={ProductFixingToEnum.options}
+        selectName="fixingTo"
+        value={product.fixingTo}
+      />
     </>
   );
 }
 
 export default ProductFormCommonElements;
-
-// <select
-//   name="fitType"
-//   id="fitType"
-//   value={product.fitType}
-//   onChange={onChangeHandlerSelect}
-//   className="p-3 bg-gray-100 border border-white rounded-lg ml-3 w-50"
-// >
-//   {fitTypeOptions}
-// </select>;

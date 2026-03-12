@@ -15,10 +15,7 @@ function CustomerPage() {
       <div className="flex w-full justify-end">
         <ButtonGrey onClickHandler={newButtonOnClickHandler} buttonText="New" icon={Plus} />
       </div>
-      <div
-        className="w-full h-full flex flex-col space-y-6 items-center xl:flex-row xl:items-start xl:justify-evenly
-      "
-      >
+      <div className="w-full h-full flex flex-col space-y-6 items-center xl:flex-row xl:items-start xl:justify-evenly">
         <CustomerSearchForm />
         <CustomerSearchResultList />
       </div>
