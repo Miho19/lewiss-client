@@ -25,85 +25,74 @@ function NewCustomerForm() {
   };
 
   return (
-    <div className="w-full flex flex-col md:items-center space-y-6 h-full shadow-md border-t border-black/5 px-3">
-      <h2 className="border-b border-black/5 py-6">New Customer</h2>
-      <form
-        className="w-full grid grid-cols-5 gap-5 md:grid-cols-3 md:grid-rows-4"
-        onSubmit={onSubmitHandler}
-      >
-        <label htmlFor="familyName" className="col-span-2 md:col-span-1 md:row-start-1">
-          Family name:
-        </label>
-        <input
-          placeholder="Doe"
-          id="familyName"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
-          name="familyName"
-          onChange={handleInputOnChange}
-          value={newCustomerData.familyName}
-        />
+    <div className="w-full flex flex-col shadow-md px-3 py-6 border-t border-black/5 md:w-96 space-y-6">
+      <h2 className="border-b border-black/5 py-6 text-lg">New Customer</h2>
+      <form className="w-full flex flex-col space-y-10" onSubmit={onSubmitHandler}>
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="familyName">Family Name</label>
+          <input
+            id="familyName"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="familyName"
+            onChange={handleInputOnChange}
+            value={newCustomerData.familyName}
+          />
+        </div>
 
-        <label htmlFor="mobileNumber" className="col-span-2 md:col-span-1 md:row-start-1">
-          Mobile number:
-        </label>
-        <input
-          type="tel"
-          placeholder="123-456-7890"
-          id="mobileNumber"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          name="mobileNumber"
-          onChange={handleInputOnChange}
-          value={newCustomerData.mobile}
-        />
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="mobile">Mobile</label>
+          <input
+            id="mobile"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="mobile"
+            onChange={handleInputOnChange}
+            value={newCustomerData.mobile}
+          />
+        </div>
 
-        <label htmlFor="emailAddress" className="col-span-2 md:col-span-1 md:row-start-1">
-          Email address:
-        </label>
-        <input
-          id="emailAddress"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
-          type="email"
-          name="emailAddress"
-          onChange={handleInputOnChange}
-          value={newCustomerData.email}
-        />
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="email"
+            onChange={handleInputOnChange}
+            value={newCustomerData.email}
+          />
+        </div>
 
-        <label htmlFor="street" className="col-span-2 md:col-span-1 md:row-start-3">
-          Street:
-        </label>
-        <input
-          placeholder="Doe"
-          id="street"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-4 md:ml-0"
-          name="street"
-          onChange={handleInputOnChange}
-          value={newCustomerData.street}
-        />
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="street">Street</label>
+          <input
+            id="street"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="street"
+            onChange={handleInputOnChange}
+            value={newCustomerData.street}
+          />
+        </div>
 
-        <label htmlFor="suburb" className="col-span-2 md:col-span-1 md:row-start-3">
-          Suburb:
-        </label>
-        <input
-          placeholder="Doe"
-          id="suburb"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-4 md:ml-0"
-          name="suburb"
-          onChange={handleInputOnChange}
-          value={newCustomerData.suburb}
-        />
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="suburb">Suburb</label>
+          <input
+            id="suburb"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="suburb"
+            onChange={handleInputOnChange}
+            value={newCustomerData.suburb}
+          />
+        </div>
 
-        <label htmlFor="city" className="col-span-2 md:col-span-1 md:row-start-3">
-          City:
-        </label>
-        <input
-          placeholder="Doe"
-          id="city"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-4 md:ml-0"
-          name="city"
-          onChange={handleInputOnChange}
-          value={newCustomerData.city}
-        />
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="city">City</label>
+          <input
+            id="city"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="city"
+            onChange={handleInputOnChange}
+            value={newCustomerData.city}
+          />
+        </div>
 
         <div className="col-span-5 md:col-span-1 md:col-start-3 md:flex md:justify-end md:w-full ">
           <ButtonGrey buttonText="Create" icon={UserPlus} onClickHandler={() => {}} />
