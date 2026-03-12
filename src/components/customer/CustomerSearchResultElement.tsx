@@ -4,10 +4,9 @@ import type { CustomerType } from '../../zod/Customer';
 
 type Props = {
   customer: CustomerType;
-  hoverable: boolean;
 };
 function CustomerSearchResultElement(props: Props) {
-  const { customer, hoverable } = props;
+  const { customer } = props;
   const selectedCustomerContext = useCustomerSelect();
   const navigator = useNavigate();
 
@@ -19,7 +18,7 @@ function CustomerSearchResultElement(props: Props) {
   return (
     <li
       onClick={onClickHandler}
-      className={`flex flex-1 w-full flex-col p-3 shadow-md sm:rounded-lg ${hoverable === true ? `hover:bg-gray-100 hover:-translate-y-3 cursor-pointer` : ``} transition-all duration-100 ease-in-out group border-t border-black/5`}
+      className={`flex flex-1 w-full flex-col p-3 shadow-md sm:rounded-lg hover:bg-gray-100 hover:-translate-y-3 cursor-pointer transition-all duration-100 ease-in-out group border-t border-black/5`}
     >
       <div className="flex flex-1 w-full justify-between">
         <p className="text-lg">{customer.familyName}</p>

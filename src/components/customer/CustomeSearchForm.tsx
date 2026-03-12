@@ -27,48 +27,44 @@ function CustomerSearchForm() {
     console.log(customerSearchData);
   }
   return (
-    <div className="w-full flex flex-col md:items-center space-y-6">
-      <h2 className="border-b border-black/5 py-6">Customer Search</h2>
-      <form
-        className="w-full grid grid-cols-5 gap-4 md:grid-cols-3 md:grid-rows-2"
-        onSubmit={handleOnSubmit}
-      >
-        <label htmlFor="familyName" className="col-span-2 md:col-span-1 md:row-start-1">
-          Family name:
-        </label>
-        <input
-          placeholder="Doe"
-          id="familyName"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
-          name="familyName"
-          onChange={handleInputOnChange}
-          value={customerSearchData.familyName}
-        />
+    <div className="w-full flex flex-col shadow-md px-3 py-6 border-t border-black/5 md:w-96 space-y-6">
+      <h2 className="border-b border-black/5 py-6 text-lg">Customer Search</h2>
+      <form className="w-full flex flex-col space-y-10" onSubmit={handleOnSubmit}>
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="familyName">Family Name</label>
+          <input
+            id="familyName"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="familyName"
+            onChange={handleInputOnChange}
+            value={customerSearchData.familyName}
+          />
+        </div>
 
-        <label htmlFor="mobile" className="col-span-2 md:col-span-1 md:row-start-1">
-          Mobile number:
-        </label>
-        <input
-          id="mobile"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3 md:col-span-1 md:row-start-2 md:ml-0"
-          name="mobile"
-          onChange={handleInputOnChange}
-          value={customerSearchData.mobile}
-        />
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="mobile">Mobile</label>
+          <input
+            id="mobile"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="mobile"
+            onChange={handleInputOnChange}
+            value={customerSearchData.mobile}
+          />
+        </div>
 
-        <label htmlFor="email" className="col-span-2 md:col-span-1 md:row-start-1">
-          Email address:
-        </label>
-        <input
-          id="email"
-          className="pl-3 bg-gray-100 border border-white rounded-lg ml-3 col-span-3  md:col-span-1 md:row-start-2 md:ml-0"
-          type="email"
-          name="email"
-          onChange={handleInputOnChange}
-          value={customerSearchData.email}
-        />
+        <div className="w-full flex justify-between items-center">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
+            name="email"
+            onChange={handleInputOnChange}
+            value={customerSearchData.email}
+          />
+        </div>
+
         <div className="col-span-5 md:col-span-1 md:col-start-3 md:flex md:justify-end md:w-full ">
-          <ButtonGrey buttonText="Submit" icon={Search} onClickHandler={() => {}} />
+          <ButtonGrey buttonText="Search" icon={Search} onClickHandler={() => {}} />
         </div>
       </form>
     </div>

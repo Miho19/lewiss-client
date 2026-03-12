@@ -2,7 +2,7 @@ import type { CustomerType } from '../../zod/Customer';
 import { v4 as uuidv4 } from 'uuid';
 
 export const testCustomner: CustomerType = {
-  familyName: 'April',
+  familyName: 'A',
   street: 'street 1',
   city: 'city 1',
   suburb: 'suburb 1',
@@ -14,7 +14,7 @@ export const testCustomner: CustomerType = {
 export const testCustomers: CustomerType[] = [
   testCustomner,
   {
-    familyName: 'Woodward',
+    familyName: 'B',
     street: 'street 2',
     city: 'city 2',
     suburb: 'suburb 2',
@@ -23,7 +23,7 @@ export const testCustomers: CustomerType[] = [
     id: uuidv4(),
   },
   {
-    familyName: 'Todd',
+    familyName: 'C',
     street: 'street 3',
     city: 'city 3',
     suburb: 'suburb 3',
