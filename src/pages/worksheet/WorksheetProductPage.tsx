@@ -42,12 +42,16 @@ function WorksheetProductPage() {
     });
   }, []);
 
+  function resetProductData() {
+    setProductData({ ...product });
+  }
+
   function backButtonOnClickHandler() {
     navigator(-1);
   }
 
   return (
-    <div className="w-full h-full flex flex-col space-y-6 items-center">
+    <div className="w-full h-full flex flex-col items-center">
       <div className="flex w-full justify-end">
         <ButtonGrey
           buttonText="Back"
@@ -55,7 +59,11 @@ function WorksheetProductPage() {
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <ProductEntryForm product={productData} setProduct={setProductData} />
+      <ProductEntryForm
+        product={productData}
+        setProduct={setProductData}
+        resetProduct={resetProductData}
+      />
     </div>
   );
 }

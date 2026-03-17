@@ -12,9 +12,9 @@ function ProductFormFactoryKineticsCellular(props: Props) {
   if (typeof product === 'undefined') return <></>;
 
   return (
-    <>
+    <div className="">
       <ProductFormCommonElements {...props} />
-    </>
+    </div>
   );
 }
 
