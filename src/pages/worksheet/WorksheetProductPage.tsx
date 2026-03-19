@@ -51,7 +51,7 @@ function WorksheetProductPage() {
   }
 
   return (
-    <div className="w-full h-full flex flex-col items-center relative">
+    <div className="w-full h-full flex flex-col items-center relative space-y-6">
       <div className="flex w-full justify-end">
         <ButtonGrey
           buttonText="Back"

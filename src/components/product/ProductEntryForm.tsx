@@ -15,7 +15,9 @@ function ProductEntryForm(props: Props) {
 
   return (
     <div className="w-full flex flex-col space-y-6">
-      <form className="w-full flex flex-col">{formChildren}</form>
+      <form className="w-full flex flex-col" id="productForm">
+        {formChildren}
+      </form>
 
       <div className="flex w-full flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:justify-between md:absolute md:bottom-6">
         <ButtonGrey buttonText="Save" icon={Save} onClickHandler={() => {}} />

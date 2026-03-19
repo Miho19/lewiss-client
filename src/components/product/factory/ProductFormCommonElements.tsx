@@ -34,6 +34,9 @@ function ProductFormCommonElements(props: Props) {
 
   return (
     <div className="w-full flex flex-col space-y-16 shadow-md px-6 pt-6 pb-12 border-t border-black/5 md:w-xl">
+      <p className="text-xs italic text-gray-400 border-b border-black/5 mb-6 pb-3">
+        {product.productType}
+      </p>
       <div className="w-full flex justify-between items-center">
         <label htmlFor="location">Location</label>
         <input

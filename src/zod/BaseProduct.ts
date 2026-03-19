@@ -23,13 +23,10 @@ export const BaseProductCreateZodObject = z.object({
   installHeight: z.number(),
   fitType: ProductFitTypeEnum,
   fixingTo: ProductFixingToEnum,
-
-  // dependent on product type
-
   productType: ProductTypeEnum,
-  fabric: z.string(),
-  operationType: z.string(),
   operationSide: ProductOperationSideEnum,
+
+  // need to figure this out, it requires actually getting the entire list of products already created...
   remoteNumber: z.number(),
   remoteChannel: z.number(),
 });

@@ -1,12 +1,29 @@
 import * as z from 'zod';
 import { BaseProductCreateZodObject } from './BaseProduct';
 
-const headrailColourEnum = z.enum(['White', 'Black'] as const);
-const sideChannelColourEnum = z.enum(['White', 'Black', 'None'] as const);
+export const kineticsCellularHeadrailColourEnum = z.enum(['White', 'Black'] as const);
+export const kineticsCellularSideChannelColourEnum = z.enum(['White', 'Black', 'None'] as const);
+
+export const kineticsCellular10mmOperationEnum = z.enum([
+  'Lithium-ion',
+  'Cord',
+  'Skylight',
+  'Top Down Bottom Up',
+]);
+
+export const kineticsCellular20mmOperationEnum = z.enum(['Cord', 'Top Down Bottom Up'] as const);
+
+export const kineticsCellularCombSizeEnum = z.enum(['10mm', '20mm'] as const);
+
+export const kineticsCellular10mmFabricEnum = z.enum(['001 Translucent Cotton'] as const);
+export const kineticsCellular20mmFabricEnum = z.enum(['021 Translucent Gray Sheen'] as const);
 
 const KineticsCellularZodObject = z.object({
-  headrailColour: headrailColourEnum,
-  sideChannelColour: sideChannelColourEnum,
+  combSize: kineticsCellularCombSizeEnum,
+  operationType: kineticsCellular10mmOperationEnum.or(kineticsCellular20mmOperationEnum),
+  headrailColour: kineticsCellularHeadrailColourEnum,
+  sideChannelColour: kineticsCellularSideChannelColourEnum,
+  fabric: kineticsCellular10mmFabricEnum.or(kineticsCellular20mmFabricEnum),
 });
 
 export const KineticsCellularProductCreateZodObject = z.object({

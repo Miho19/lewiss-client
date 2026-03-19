@@ -1,5 +1,6 @@
 import type { ProductEntryTypes } from '../../../zod/BaseProduct';
 import ProductFormCommonElements from './ProductFormCommonElements';
+import ProductFormKineticsCellularOperation from './ProductFormKineticsCellularOperation';
 
 type Props = {
   product: ProductEntryTypes;
@@ -12,8 +13,9 @@ function ProductFormFactoryKineticsCellular(props: Props) {
   if (typeof product === 'undefined') return <></>;
 
   return (
-    <div className="">
+    <div className="w-full flex flex-col space-y-10">
       <ProductFormCommonElements {...props} />
+      <ProductFormKineticsCellularOperation {...props} />
     </div>
   );
 }
