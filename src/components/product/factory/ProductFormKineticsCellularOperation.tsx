@@ -7,6 +7,8 @@ import {
   kineticsCellular20mmFabricEnum,
   kineticsCellular20mmOperationEnum,
   kineticsCellularCombSizeEnum,
+  kineticsCellularHeadrailColourEnum,
+  kineticsCellularSideChannelColourEnum,
   type KineticsCellularProductEntryType,
 } from '../../../zod/KineticsCellular';
 
@@ -80,6 +82,30 @@ function ProductFormKineticsCellularOperation(props: Props) {
         }
         selectName="fabric"
         value={(product as KineticsCellularProductEntryType).fabric}
+      />
+
+      <FormSelectInput
+        labelValue="Headrail Colour"
+        onSelectHandler={onChangeHandlerSelect}
+        options={
+          (product as KineticsCellularProductEntryType).combSize === '10mm'
+            ? kineticsCellularHeadrailColourEnum.options
+            : kineticsCellularHeadrailColourEnum.options
+        }
+        selectName="headrailColour"
+        value={(product as KineticsCellularProductEntryType).headrailColour}
+      />
+
+      <FormSelectInput
+        labelValue="Side Channel Colour"
+        onSelectHandler={onChangeHandlerSelect}
+        options={
+          (product as KineticsCellularProductEntryType).combSize === '10mm'
+            ? kineticsCellularSideChannelColourEnum.options
+            : kineticsCellularSideChannelColourEnum.options
+        }
+        selectName="sideChannelColour"
+        value={(product as KineticsCellularProductEntryType).sideChannelColour}
       />
 
       {/* <div className="w-full flex justify-between items-center">
