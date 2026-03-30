@@ -1,5 +1,6 @@
 import type { ProductEntryTypes } from '../../../zod/BaseProduct';
 import ProductFormCommonElements from './ProductFormCommonElements';
+import ProductFormKineticsRollerFabric from './ProductFormKineticsRollerFabric';
 import ProductFormKineticsRollerOperation from './ProductFormKineticsRollerOperation';
 
 type Props = {
@@ -16,6 +17,7 @@ function ProductFormFactoryKineticsRoller(props: Props) {
     <div className="w-full flex flex-col space-y-10 items-center">
       <ProductFormCommonElements {...props} />
       <ProductFormKineticsRollerOperation {...props} />
+      <ProductFormKineticsRollerFabric {...props} />
     </div>
   );
 }

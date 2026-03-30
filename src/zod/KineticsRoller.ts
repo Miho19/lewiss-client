@@ -44,6 +44,7 @@ export const kineticsRollerFabricSSEnum = z.enum([
 ] as const);
 
 export const kineticsFabricTypeEnum = z.enum(['LF', 'BO', 'SS'] as const);
+export type KineticsFabricType = z.infer<typeof kineticsFabricTypeEnum>;
 
 const KineticsRollerZodObject = z.object({
   rollType: kineticsRollerRollTypeEnum,
