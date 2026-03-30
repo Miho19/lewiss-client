@@ -21,18 +21,17 @@ function WorksheetHomePage() {
   }, [selectedCustomer]);
 
   return (
-    <div className="w-full h-full flex flex-col space-y-6">
-      <div className="flex w-full justify-end">
+    <div className="w-full h-full flex flex-col space-y-6 items-center">
+      <div className="w-full flex md:w-xl md:justify-end">
         <ButtonGrey
           buttonText="Back"
           icon={CircleArrowLeft}
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <div className="w-full h-full flex flex-col space-y-6">
-        <CustomerInformation />
-        <WorksheetList />
-      </div>
+
+      <CustomerInformation />
+      <WorksheetList />
     </div>
   );
 }

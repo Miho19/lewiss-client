@@ -22,12 +22,13 @@ const initialData: KineticsCellularProductEntryType = {
   installHeight: 0,
   fitType: 'Inside',
   fixingTo: 'wood',
-  productType: 'Kinetics Roller',
-  fabric: '',
-  operationType: '',
+  productType: 'Kinetics Cellular',
+  fabric: '001 Translucent Cotton',
+  operationType: 'Cord',
   operationSide: 'Left',
   remoteNumber: 0,
   remoteChannel: 0,
+  combSize: '10mm',
   id: '',
   price: 0,
 };
@@ -51,8 +52,8 @@ function WorksheetProductPage() {
   }
 
   return (
-    <div className="w-full h-full flex flex-col items-center relative space-y-6">
-      <div className="flex w-full justify-end">
+    <div className="w-full h-full flex flex-col space-y-6 items-center">
+      <div className="w-full flex md:w-xl md:justify-end">
         <ButtonGrey
           buttonText="Back"
           icon={CircleArrowLeft}

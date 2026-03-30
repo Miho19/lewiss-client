@@ -14,12 +14,12 @@ function ProductEntryForm(props: Props) {
   const formChildren = <ProductFormFactory {...props} />;
 
   return (
-    <div className="w-full flex flex-col space-y-6">
-      <form className="w-full flex flex-col" id="productForm">
+    <div className="w-full flex flex-col space-y-6 md:w-xl items-center">
+      <form className="w-full flex flex-col items-center md:w-xl" id="productForm">
         {formChildren}
       </form>
 
-      <div className="flex w-full flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:justify-between md:absolute md:bottom-6">
+      <div className="flex w-full flex-col space-y-10 lg:w-xl lg:flex-row-reverse lg:space-y-0 lg:justify-between">
         <ButtonGrey buttonText="Save" icon={Save} onClickHandler={() => {}} />
         <ButtonGrey buttonText="Reset" icon={RotateCcw} onClickHandler={props.resetProduct} />
       </div>

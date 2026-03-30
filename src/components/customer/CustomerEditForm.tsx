@@ -22,7 +22,7 @@ function CustomerEditForm(props: Props) {
   }
 
   return (
-    <div className="w-full flex flex-col shadow-md px-6 py-6 border-t border-black/5 md:w-96 space-y-6">
+    <div className="w-full flex flex-col shadow-md px-6 py-6 border-t border-black/5 md:w-xl space-y-6">
       <h2 className="text-lg border-b border-black/5 pb-5 w-full">{customer.familyName}</h2>
 
       <form className="w-full flex flex-col space-y-10" onSubmit={onSubmitHandler}>

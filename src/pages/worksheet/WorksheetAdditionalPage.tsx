@@ -12,7 +12,7 @@ function WorksheetAdditionalPage() {
 
   return (
     <div className="w-full h-full flex flex-col space-y-6 items-center">
-      <div className="flex w-full justify-end">
+      <div className="w-full flex md:w-xl md:justify-end">
         <ButtonGrey
           buttonText="Back"
           icon={CircleArrowLeft}

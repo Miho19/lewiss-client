@@ -9,7 +9,7 @@ export const kineticsCellular10mmOperationEnum = z.enum([
   'Cord',
   'Skylight',
   'Top Down Bottom Up',
-]);
+] as const);
 
 export const kineticsCellular20mmOperationEnum = z.enum(['Cord', 'Top Down Bottom Up'] as const);
 

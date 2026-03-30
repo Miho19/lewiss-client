@@ -16,7 +16,7 @@ function CustomerInformation() {
   }
 
   return (
-    <div className="flex w-full flex-col space-y-3 shadow-md px-3 pt-3 border-t border-black/5 pb-6">
+    <div className="flex w-full flex-col space-y-3 shadow-md px-3 pt-3 border-t border-black/5 pb-6 md:w-xl">
       <div className="w-full flex flex-col space-y-4 p-3">
         <p className="text-lg font-semibold border-b border-black/15 pb-3">
           {customerSelected.customer.familyName}
@@ -36,5 +36,7 @@ function CustomerInformation() {
     </div>
   );
 }
+
+// probably want to switch all buttons to be navlinks
 
 export default CustomerInformation;

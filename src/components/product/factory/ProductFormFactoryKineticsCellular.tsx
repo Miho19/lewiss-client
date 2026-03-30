@@ -13,7 +13,7 @@ function ProductFormFactoryKineticsCellular(props: Props) {
   if (typeof product === 'undefined') return <></>;
 
   return (
-    <div className="w-full flex flex-col space-y-10">
+    <div className="w-full flex flex-col space-y-10 items-center">
       <ProductFormCommonElements {...props} />
       <ProductFormKineticsCellularOperation {...props} />
     </div>

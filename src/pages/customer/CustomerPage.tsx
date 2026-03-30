@@ -11,14 +11,12 @@ function CustomerPage() {
   }
 
   return (
-    <div className="w-full h-full flex flex-col space-y-6">
-      <div className="flex w-full justify-end">
+    <div className="w-full h-full flex flex-col space-y-6 md:items-center">
+      <div className="flex w-full md:w-xl md:justify-end">
         <ButtonGrey onClickHandler={newButtonOnClickHandler} buttonText="New" icon={Plus} />
       </div>
-      <div className="w-full h-full flex flex-col space-y-6 items-center xl:flex-row xl:items-start xl:justify-evenly">
-        <CustomerSearchForm />
-        <CustomerSearchResultList />
-      </div>
+      <CustomerSearchForm />
+      <CustomerSearchResultList />
     </div>
   );
 }

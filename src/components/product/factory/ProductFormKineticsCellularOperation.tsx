@@ -39,7 +39,7 @@ function ProductFormKineticsCellularOperation(props: Props) {
   }
 
   return (
-    <div className="w-full flex flex-col space-y-16 shadow-md px-6 pt-6 pb-12 border-t border-black/5 md:w-xl">
+    <div className="w-full flex flex-col space-y-16 shadow-md px-6 pt-6 pb-12 border-t border-black/5">
       <p className="text-xs italic text-gray-400 border-b border-black/5 mb-6 pb-3">
         {product.productType}
       </p>
@@ -107,38 +107,6 @@ function ProductFormKineticsCellularOperation(props: Props) {
         selectName="sideChannelColour"
         value={(product as KineticsCellularProductEntryType).sideChannelColour}
       />
-
-      {/* <div className="w-full flex justify-between items-center">
-        <label htmlFor="remoteNumber">Remote</label>
-        <div className="flex justify-between w-50 pl-3 pr-3 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer">
-          <input
-            name="remoteNumber"
-            id="remoteNumber"
-            type="number"
-            min={0}
-            max={15}
-            value={product.remoteNumber}
-            onChange={onChangeHandlerInput}
-            className="w-full"
-          />
-        </div>
-      </div>
-
-      <div className="w-full flex justify-between items-center">
-        <label htmlFor="remoteChannel">Channel</label>
-        <div className="flex justify-between w-50 pl-3  pr-3 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer">
-          <input
-            name="remoteChannel"
-            id="remoteChannel"
-            type="number"
-            min={0}
-            max={15}
-            value={product.remoteChannel}
-            onChange={onChangeHandlerInput}
-            className="w-full"
-          />
-        </div>
-      </div> */}
     </div>
   );
 }

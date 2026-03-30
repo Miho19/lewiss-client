@@ -23,16 +23,17 @@ function ProductList(props: Props) {
   ));
 
   return (
-    <div className="w-full flex flex-col space-y-6 shadow-md px-3 py-6 border-t border-black/5 md:w-2xl">
+    <div className="w-full flex flex-col space-y-6 shadow-md px-6 py-6 border-t border-black/5 md:w-xl">
       <div className="flex w-full justify-between border-b border-black/5 pb-6">
         <h2 className="">Products</h2>
         <p>{currencyFormat(blindTotal)}</p>
       </div>
+
+      <ul className="flex flex-col space-y-10 overflow-y-scroll p-3">{productListElements}</ul>
+
       <div className="w-full flex md:justify-end">
         <ButtonGrey buttonText="New" onClickHandler={() => {}} icon={Plus} />
       </div>
-
-      <ul className="flex flex-col space-y-10 overflow-y-scroll p-3">{productListElements}</ul>
     </div>
   );
 }

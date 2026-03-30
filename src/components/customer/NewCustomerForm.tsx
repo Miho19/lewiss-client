@@ -25,7 +25,7 @@ function NewCustomerForm() {
   };
 
   return (
-    <div className="w-full flex flex-col shadow-md px-3 py-6 border-t border-black/5 md:w-96 space-y-6">
+    <div className="w-full flex flex-col shadow-md px-6 py-6 border-t border-black/5 space-y-6 md:w-xl">
       <h2 className="border-b border-black/5 py-6 text-lg">New Customer</h2>
       <form className="w-full flex flex-col space-y-10" onSubmit={onSubmitHandler}>
         <div className="w-full flex justify-between items-center">

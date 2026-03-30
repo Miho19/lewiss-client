@@ -32,18 +32,17 @@ function WorksheetPage() {
 
   return (
     <div className="w-full h-full flex flex-col space-y-6 items-center">
-      <div className="flex w-full justify-end">
+      <div className="w-full flex md:w-xl md:justify-end">
         <ButtonGrey
           buttonText="Back"
           icon={CircleArrowLeft}
           onClickHandler={backButtonOnClickHandler}
         />
       </div>
-      <div className="w-full flex flex-col space-y-6 items-center 2xl:space-y-0 2xl:flex-row 2xl:justify-evenly 2xl:items-start">
-        <WorksheetPricingInformation worksheet={worksheet} />
-        <WorksheetOption worksheet={worksheet} />
-        <WorksheetAdditionalProduct worksheet={worksheet} />
-      </div>
+
+      <WorksheetPricingInformation worksheet={worksheet} />
+      <WorksheetOption worksheet={worksheet} />
+      <WorksheetAdditionalProduct worksheet={worksheet} />
 
       <ProductList worksheet={worksheet} />
     </div>
