@@ -3,13 +3,13 @@ import ButtonGrey from '../../components/common/ButtonGrey';
 import { testWorksheet } from '../../utility/msw/worksheet-example';
 import { useNavigate } from 'react-router';
 import ProductEntryForm from '../../components/product/ProductEntryForm';
-import { testProduct1 } from '../../utility/msw/product-example';
+import { testProduct1, testProduct3 } from '../../utility/msw/product-example';
 import type { ProductEntryTypes } from '../../zod/BaseProduct';
 import { useEffect, useState } from 'react';
 import type { KineticsCellularProductEntryType } from '../../zod/KineticsCellular';
 
 const worksheet = testWorksheet;
-const product = testProduct1;
+const product = testProduct3;
 
 const initialData: KineticsCellularProductEntryType = {
   headrailColour: 'White',
