@@ -1,24 +1,27 @@
 import * as z from 'zod';
 import { BaseProductCreateZodObject } from './BaseProduct';
 
-const kineticsRollerRollTypeEnum = z.enum(['Front', 'Back'] as const);
+export const kineticsRollerRollTypeEnum = z.enum(['Front', 'Back'] as const);
+
 export const kineticsRollerChainColourEnum = z.enum([
   'White',
   'Black',
   'Grey',
   'Stainless',
 ] as const);
-const kineticsRollerBracketTypeEnum = z.enum(['Standard', 'Extra Large'] as const);
-const kineticsRollerBracketColourEnum = z.enum(['White', 'Black'] as const);
-const kineticsRollerBottomRailTypeEnum = z.enum(['Flat', 'Deluxe'] as const);
-const kineticsRollerBottomRailColourEnum = z.enum([
+export const kineticsRollerBracketTypeEnum = z.enum(['Standard', 'Extra Large'] as const);
+export const kineticsRollerBracketColourEnum = z.enum(['White', 'Black'] as const);
+
+export const kineticsRollerBottomRailTypeEnum = z.enum(['Flat', 'Deluxe'] as const);
+export const kineticsRollerBottomRailColourEnum = z.enum([
   'White',
   'Black',
   'Silver',
   'Off White',
 ] as const);
-const kineticsRollerPelmetTypeEnum = z.enum(['None'] as const);
-const kineticsRollerPelmetColourEnum = z.enum(['White', 'Black'] as const);
+
+export const kineticsRollerPelmetTypeEnum = z.enum(['None'] as const); // add options later
+export const kineticsRollerPelmetColourEnum = z.enum(['White', 'Black'] as const);
 
 export const kineticsRollerChainLengthOptions = [1500, 1750, 2000, 2250, 2500] as const;
 
@@ -48,18 +51,20 @@ export type KineticsFabricType = z.infer<typeof kineticsFabricTypeEnum>;
 
 const KineticsRollerZodObject = z.object({
   rollType: kineticsRollerRollTypeEnum,
-  chainColour: kineticsRollerChainColourEnum,
-  chainLength: kineticsRollerChainLengthEnum,
   bracketType: kineticsRollerBracketTypeEnum,
   bracketColour: kineticsRollerBracketColourEnum,
+
   bottomRailType: kineticsRollerBottomRailTypeEnum,
   bottomRailColour: kineticsRollerBottomRailColourEnum,
+
   pelmetType: kineticsRollerPelmetTypeEnum,
   pelmetColour: kineticsRollerPelmetColourEnum,
 
   operationType: kineticsRollerOperationEnum,
   fabricType: kineticsFabricTypeEnum,
   fabric: kineticsRollerFabricSSEnum.or(kineticsRollerFabricBOEnum.or(kineticsRollerFabricLFEnum)),
+  chainColour: kineticsRollerChainColourEnum,
+  chainLength: kineticsRollerChainLengthEnum,
 });
 
 export const KineticsRollerProductCreateZodObject = z.object({

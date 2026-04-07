@@ -1,7 +1,10 @@
 import type { ProductEntryTypes } from '../../../zod/BaseProduct';
 import ProductFormCommonElements from './ProductFormCommonElements';
+import ProductFormKineticsRollerBottomRail from './ProductFormKineticsRollerBottomRail';
+import ProductFormKineticsRollerBracket from './ProductFormKineticsRollerBracket';
 import ProductFormKineticsRollerFabric from './ProductFormKineticsRollerFabric';
 import ProductFormKineticsRollerOperation from './ProductFormKineticsRollerOperation';
+import ProductFormKineticsRollerPelmet from './ProductFormKineticsRollerPelmet';
 
 type Props = {
   product: ProductEntryTypes;
@@ -18,6 +21,9 @@ function ProductFormFactoryKineticsRoller(props: Props) {
       <ProductFormCommonElements {...props} />
       <ProductFormKineticsRollerOperation {...props} />
       <ProductFormKineticsRollerFabric {...props} />
+      <ProductFormKineticsRollerBracket {...props} />
+      <ProductFormKineticsRollerBottomRail {...props} />
+      <ProductFormKineticsRollerPelmet {...props} />
     </div>
   );
 }
