@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import useCustomerSelect from '../../hooks/useCustomerSelect';
+import useCustomerSelect from '../../hooks/Customer/useCustomerSelect';
 import type { CustomerType } from '../../zod/Customer';
 
 type Props = {

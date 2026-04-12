@@ -3,7 +3,7 @@ import ButtonGrey from '../../components/common/ButtonGrey';
 import { useNavigate } from 'react-router';
 
 import { useEffect } from 'react';
-import useCustomerSelect from '../../hooks/useCustomerSelect';
+import useCustomerSelect from '../../hooks/Customer/useCustomerSelect';
 
 import CustomerEditForm from '../../components/customer/CustomerEditForm';
 

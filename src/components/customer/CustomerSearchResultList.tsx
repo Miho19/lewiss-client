@@ -1,5 +1,5 @@
 import CustomerSearchResultElement from './CustomerSearchResultElement';
-import { testCustomers } from '../../utility/msw/customer-example';
+import { testCustomers } from '../../utility/msw/customer/customer-example';
 
 function CustomerSearchResultList() {
   const customerSearchResultElements = testCustomers.map((c) => (

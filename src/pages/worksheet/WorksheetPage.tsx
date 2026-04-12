@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router';
 import ButtonGrey from '../../components/common/ButtonGrey';
 import { CircleArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
-import useCustomerSelect from '../../hooks/useCustomerSelect';
+import useCustomerSelect from '../../hooks/Customer/useCustomerSelect';
 import { testWorksheet } from '../../utility/msw/worksheet-example';
 import WorksheetPricingInformation from '../../components/worksheet/WorksheetPricingInformation';
 import ProductList from '../../components/product/ProductList';

@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import { NavLink, type To } from 'react-router';
-import useCustomerSelect from '../../hooks/useCustomerSelect';
+import useCustomerSelect from '../../hooks/Customer/useCustomerSelect';
 
 export type SidebarLinkProps = {
   name: String;

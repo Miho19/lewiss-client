@@ -15,6 +15,11 @@ import WorksheetAdditionalPage from './pages/worksheet/WorksheetAdditionalPage';
 
 import WorksheetOptionPage from './pages/worksheet/WorksheetOptionPage';
 import WorksheetProductPage from './pages/worksheet/WorksheetProductPage';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient();
 
 export const router = createBrowserRouter([
   {
@@ -47,11 +52,23 @@ export const router = createBrowserRouter([
   },
 ]);
 
+async function enableMocking() {
+  if (!import.meta.env.DEV) return;
+  const { worker } = await import('./utility/msw/integration/Browser');
+  return worker.start();
+}
+
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <CustomerSelectedProvider>
-      <RouterProvider router={router} />
-    </CustomerSelectedProvider>
-  </StrictMode>,
+
+enableMocking().then(() =>
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <CustomerSelectedProvider>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools />
+        </CustomerSelectedProvider>
+      </QueryClientProvider>
+    </StrictMode>,
+  ),
 );

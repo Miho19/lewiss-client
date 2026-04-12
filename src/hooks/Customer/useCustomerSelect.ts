@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CustomerSelectedContext } from '../context/CustomerSelectedContext';
+import { CustomerSelectedContext } from '../../context/CustomerSelectedContext';
 
 function useCustomerSelect() {
   const context = useContext(CustomerSelectedContext);

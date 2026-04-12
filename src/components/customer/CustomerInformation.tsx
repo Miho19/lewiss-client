@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useCustomerSelect from '../../hooks/useCustomerSelect';
+import useCustomerSelect from '../../hooks/Customer/useCustomerSelect';
 import { NavLink, useNavigate } from 'react-router';
 import { UserPen } from 'lucide-react';
 
