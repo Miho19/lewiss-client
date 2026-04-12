@@ -1,8 +1,14 @@
 import CustomerSearchResultElement from './CustomerSearchResultElement';
-import { testCustomers } from '../../utility/msw/customer/customer-example';
+import type { CustomerType } from '../../../zod/Customer';
 
-function CustomerSearchResultList() {
-  const customerSearchResultElements = testCustomers.map((c) => (
+type Props = {
+  customers: CustomerType[];
+};
+
+function CustomerSearchResultList(props: Props) {
+  const { customers } = props;
+
+  const customerSearchResultElements = customers.map((c) => (
     <CustomerSearchResultElement key={c.id} customer={c} />
   ));
 

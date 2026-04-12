@@ -1,31 +1,22 @@
-import { useState, type ChangeEvent, type SubmitEvent } from 'react';
+import React, { type ChangeEvent, type SetStateAction, type SubmitEvent } from 'react';
 import { Search } from 'lucide-react';
-import ButtonGrey from '../common/ButtonGrey';
+import ButtonGrey from '../../common/ButtonGrey';
+import type { CustomerSearchFormData } from './CustomerSearch';
 
-export type CustomerSearchFormData = {
-  familyName: string;
-  mobile: string;
-  email: string;
+type Props = {
+  customerSearchData: CustomerSearchFormData;
+  setCustomerSearchData: React.Dispatch<SetStateAction<CustomerSearchFormData>>;
+  handleOnSubmit: (event: SubmitEvent<HTMLFormElement>) => void;
 };
 
-const initialCustomerSearchFormData: CustomerSearchFormData = {
-  familyName: '',
-  mobile: '',
-  email: '',
-};
-
-function CustomerSearchForm() {
-  const [customerSearchData, setCustomerSearchData] = useState(initialCustomerSearchFormData);
+function CustomerSearchForm(props: Props) {
+  const { customerSearchData, setCustomerSearchData, handleOnSubmit } = props;
 
   function handleInputOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setCustomerSearchData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleOnSubmit(event: SubmitEvent<HTMLFormElement>) {
-    event.preventDefault();
-    console.log(customerSearchData);
-  }
   return (
     <div className="w-full flex flex-col shadow-md px-6 py-6 border-t border-black/5 md:w-xl space-y-6">
       <h2 className="border-b border-black/5 py-6 text-lg">Customer Search</h2>

@@ -1,8 +1,7 @@
 import { Plus } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import ButtonGrey from '../../components/common/ButtonGrey';
-import CustomerSearchForm from '../../components/customer/CustomeSearchForm';
-import CustomerSearchResultList from '../../components/customer/CustomerSearchResultList';
+import CustomerSearch from '../../components/customer/search/CustomerSearch';
 
 function CustomerPage() {
   const navigator = useNavigate();
@@ -15,8 +14,7 @@ function CustomerPage() {
       <div className="flex w-full md:w-xl md:justify-end">
         <ButtonGrey onClickHandler={newButtonOnClickHandler} buttonText="New" icon={Plus} />
       </div>
-      <CustomerSearchForm />
-      <CustomerSearchResultList />
+      <CustomerSearch />
     </div>
   );
 }
