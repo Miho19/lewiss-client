@@ -1,6 +1,6 @@
 import type { Path } from 'msw';
 
-const BACKENDBASEADDRESS = '${"http://localhost:5052"}/api/v1/';
+export const BACKENDBASEADDRESS = '${"http://localhost:5052"}/api/v1/';
 
 export const mswAllHandlers = [];
 

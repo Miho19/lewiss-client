@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { type CustomerType } from '../../zod/Customer';
+import GETCustomerSearchQuery from '../../http/GETCustomerSearchQuery';
+import type { CustomerSearchFormData } from '../../components/customer/search/CustomerSearch';
 
-function useCustomerSearchQuery() {
+function useCustomerSearchQuery(formData: CustomerSearchFormData) {
   return useQuery<CustomerType[]>({
     queryKey: ['customer search'],
-    queryFn: () => {},
+    queryFn: () => GETCustomerSearchQuery(formData),
     enabled: false,
   });
 }
