@@ -1,4 +1,4 @@
-import type { CustomerType } from '../../zod/Customer';
+import type { CustomerType } from '../../../zod/Customer';
 import { v4 as uuidv4 } from 'uuid';
 
 export const testCustomner: CustomerType = {

@@ -1,20 +1,17 @@
-import { url } from 'zod';
 import type { CustomerSearchFormData } from '../components/customer/search/CustomerSearch';
-import { BACKENDBASEADDRESS } from '../utility/msw';
-import { testCustomers } from '../utility/msw/customer/customer-example';
 import { CustomerZodObjectArray, type CustomerType } from '../zod/Customer';
+import { BACKENDBASEADDRESS } from './backendConstants';
 
 export function GETCustomerSearchQueryEndpoint(formData: CustomerSearchFormData): URL {
   const url = new URL(`/customer`, BACKENDBASEADDRESS);
 
-  const filteredFormData = Object.fromEntries(
-    Object.entries(formData).filter(
-      (_, value) =>
-        typeof value !== 'undefined' || !String(value) || String(value).trim().length !== 0,
-    ),
-  );
+  const filteredFormData = Object.entries(formData).filter((current) => {
+    const [key, value] = current;
+    return String(value).trim().length !== 0;
+  });
 
-  Object.entries(filteredFormData).forEach(([key, value]) => {
+  filteredFormData.forEach((current) => {
+    const [key, value] = current;
     url.searchParams.set(key, value);
   });
 
@@ -39,6 +36,7 @@ async function GETCustomerSearchQuery(
   formData: CustomerSearchFormData,
   endpoint: URL = GETCustomerSearchQueryEndpoint(formData),
 ): Promise<CustomerType[]> {
+  console.log('running this code');
   const fetchOptions = generateGETCustomerSearchQueryFetchOptions();
 
   try {
@@ -49,7 +47,7 @@ async function GETCustomerSearchQuery(
     const parsedBody = await CustomerZodObjectArray.parseAsync(responseBody);
     return parsedBody;
   } catch (error) {
-    throw new Error(`Failed to fetch customer search`);
+    throw new Error(`Failed to fetch customers`);
   }
 }
 

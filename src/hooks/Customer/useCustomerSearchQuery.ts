@@ -8,6 +8,7 @@ function useCustomerSearchQuery(formData: CustomerSearchFormData) {
     queryKey: ['customer search'],
     queryFn: () => GETCustomerSearchQuery(formData),
     enabled: false,
+    retry: 3,
   });
 }
 

@@ -2,6 +2,7 @@ import { useState, type SubmitEvent } from 'react';
 import CustomerSearchResultList from './CustomerSearchResultList';
 import CustomerSearchForm from './CustomeSearchForm';
 import useCustomerSearchQuery from '../../../hooks/Customer/useCustomerSearchQuery';
+import type { CustomerType } from '../../../zod/Customer';
 
 export type CustomerSearchFormData = {
   familyName: string;
@@ -18,14 +19,24 @@ const initialCustomerSearchFormData: CustomerSearchFormData = {
 function CustomerSearch() {
   const [customerSearchData, setCustomerSearchData] = useState(initialCustomerSearchFormData);
 
-  const { data, isSuccess, isError, isLoading, error } = useCustomerSearchQuery(customerSearchData);
+  const { data, isSuccess, isError, isLoading, error, refetch } =
+    useCustomerSearchQuery(customerSearchData);
 
   if (isLoading) return <div>Loading...</div>;
-  if (isError || !isSuccess) return <div>Error: {error?.message}</div>;
+  if (isError) {
+    console.error(error.message);
+  }
+
+  let customerList: CustomerType[];
+  if (!isSuccess) {
+    customerList = [];
+  } else {
+    customerList = data;
+  }
 
   function handleOnSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(customerSearchData);
+    refetch();
   }
 
   return (
@@ -35,7 +46,7 @@ function CustomerSearch() {
         setCustomerSearchData={setCustomerSearchData}
         handleOnSubmit={handleOnSubmit}
       />
-      <CustomerSearchResultList customers={data} />
+      <CustomerSearchResultList customers={customerList} />
     </>
   );
 }
