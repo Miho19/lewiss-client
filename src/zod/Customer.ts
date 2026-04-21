@@ -8,7 +8,7 @@ const EditableCustomerInformationZodObject = z.object({
   email: z.email(),
 });
 
-const CustomerBasicInformationZodObject = z.object({
+export const CustomerBasicInformationZodObject = z.object({
   familyName: z.string(),
   ...EditableCustomerInformationZodObject.shape,
 });

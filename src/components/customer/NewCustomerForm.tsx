@@ -1,4 +1,4 @@
-import React, { useState, type ChangeEvent, type SubmitEventHandler } from 'react';
+import React, { useEffect, useState, type ChangeEvent, type SubmitEventHandler } from 'react';
 import type { CustomerCreateType } from '../../zod/Customer';
 import { UserPlus } from 'lucide-react';
 import ButtonGrey from '../common/ButtonGrey';
@@ -44,7 +44,6 @@ function NewCustomerForm() {
     }
 
     await customerNewMutation.mutateAsync(customerNewFormData);
-    if (customerNewMutation.isSuccess) navigator('/customer');
   };
 
   return (
