@@ -36,7 +36,6 @@ async function GETCustomerSearchQuery(
   formData: CustomerSearchFormData,
   endpoint: URL = GETCustomerSearchQueryEndpoint(formData),
 ): Promise<CustomerType[]> {
-  console.log('running this code');
   const fetchOptions = generateGETCustomerSearchQueryFetchOptions();
 
   try {
