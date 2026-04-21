@@ -2,8 +2,11 @@ import React, { useState, type ChangeEvent, type SubmitEventHandler } from 'reac
 import type { CustomerCreateType } from '../../zod/Customer';
 import { UserPlus } from 'lucide-react';
 import ButtonGrey from '../common/ButtonGrey';
+import useCustomerNewMutation from '../../hooks/Customer/useCustomerNewMutation';
+import { useNavigate } from 'react-router';
+import handleCustomerNewFormValidation from '../../utility/CustomerNewFormValidation';
 
-export const initialNewCustomerData: CustomerCreateType = {
+export const initialCustomerNewFormData: CustomerCreateType = {
   familyName: '',
   street: '',
   city: '',
@@ -12,16 +15,36 @@ export const initialNewCustomerData: CustomerCreateType = {
   email: '',
 };
 
+const initialCustomerNewFormDataErrorObject: CustomerCreateType = {
+  ...initialCustomerNewFormData,
+};
+
 function NewCustomerForm() {
-  const [newCustomerData, setNewCustomerData] = useState(initialNewCustomerData);
+  const [customerNewFormData, setCustomerNewFormData] = useState(initialCustomerNewFormData);
+  const customerNewMutation = useCustomerNewMutation();
+  const [customerNewFormDataErrorObject, setCustomerNewFormDataErrorObject] = useState(
+    initialCustomerNewFormDataErrorObject,
+  );
+
+  const navigator = useNavigate();
 
   function handleInputOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
-    setNewCustomerData((prev) => ({ ...prev, [name]: value }));
+    setCustomerNewFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  const onSubmitHandler: SubmitEventHandler<HTMLFormElement> = (e) => {
+  const onSubmitHandler: SubmitEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    if (customerNewMutation.isPending) return;
+
+    const formDataErrors = handleCustomerNewFormValidation(customerNewFormData);
+    if (formDataErrors.isError) {
+      setCustomerNewFormDataErrorObject({ ...formDataErrors.errorObject });
+      return;
+    }
+
+    await customerNewMutation.mutateAsync(customerNewFormData);
+    if (customerNewMutation.isSuccess) navigator('/customer');
   };
 
   return (
@@ -35,7 +58,7 @@ function NewCustomerForm() {
             className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
             name="familyName"
             onChange={handleInputOnChange}
-            value={newCustomerData.familyName}
+            value={customerNewFormData.familyName}
           />
         </div>
 
@@ -46,7 +69,7 @@ function NewCustomerForm() {
             className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
             name="mobile"
             onChange={handleInputOnChange}
-            value={newCustomerData.mobile}
+            value={customerNewFormData.mobile}
           />
         </div>
 
@@ -57,7 +80,7 @@ function NewCustomerForm() {
             className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
             name="email"
             onChange={handleInputOnChange}
-            value={newCustomerData.email}
+            value={customerNewFormData.email}
           />
         </div>
 
@@ -68,7 +91,7 @@ function NewCustomerForm() {
             className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
             name="street"
             onChange={handleInputOnChange}
-            value={newCustomerData.street}
+            value={customerNewFormData.street}
           />
         </div>
 
@@ -79,7 +102,7 @@ function NewCustomerForm() {
             className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
             name="suburb"
             onChange={handleInputOnChange}
-            value={newCustomerData.suburb}
+            value={customerNewFormData.suburb}
           />
         </div>
 
@@ -90,7 +113,7 @@ function NewCustomerForm() {
             className="w-50 pl-3 pr-8 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-gray-600 cursor-pointer"
             name="city"
             onChange={handleInputOnChange}
-            value={newCustomerData.city}
+            value={customerNewFormData.city}
           />
         </div>
 
