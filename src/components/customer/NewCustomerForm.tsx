@@ -26,8 +26,6 @@ function NewCustomerForm() {
     initialCustomerNewFormDataErrorObject,
   );
 
-  const navigator = useNavigate();
-
   function handleInputOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setCustomerNewFormData((prev) => ({ ...prev, [name]: value }));
