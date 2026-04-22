@@ -21,6 +21,5 @@ function NewCustomerPage() {
     </div>
   );
 }
-// trying to fix the extra buttons grey button so that it matches the change in size of forms etc.
 
 export default NewCustomerPage;
