@@ -8,7 +8,7 @@ export const testCustomner: CustomerType = {
   suburb: 'suburb 1',
   mobile: 'mobile 1',
   email: 'email@address.com',
-  id: uuidv4(),
+  id: 'b8ffd09f-173f-461c-aa7c-6ada940bf7a7',
 };
 
 export const testCustomers: CustomerType[] = [

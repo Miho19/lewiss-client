@@ -1,6 +1,6 @@
 import type { KineticsCellularProductEntryType } from '../../zod/KineticsCellular';
 import type { KineticsRollerProductEntryType } from '../../zod/KineticsRoller';
-import { testWorksheet } from './worksheet-example';
+import { testWorksheet } from './worksheet/worksheet-example';
 import { v4 as uuidv4 } from 'uuid';
 
 export const testProduct1: KineticsCellularProductEntryType = {

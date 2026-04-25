@@ -3,7 +3,7 @@ import ButtonGrey from '../../components/common/ButtonGrey';
 import { CircleArrowLeft } from 'lucide-react';
 import { useEffect } from 'react';
 import useCustomerSelect from '../../hooks/Customer/useCustomerSelect';
-import { testWorksheet } from '../../utility/msw/worksheet-example';
+import { testWorksheet } from '../../utility/msw/worksheet/worksheet-example';
 import WorksheetPricingInformation from '../../components/worksheet/WorksheetPricingInformation';
 import ProductList from '../../components/product/ProductList';
 import WorksheetOption from '../../components/worksheet/WorksheetOption';
