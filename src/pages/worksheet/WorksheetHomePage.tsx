@@ -31,9 +31,11 @@ function WorksheetHomePage() {
       </div>
 
       <CustomerInformation />
-      <WorksheetList />
+      <WorksheetList customer={selectedCustomer.customer!} />
     </div>
   );
 }
+
+// selected customer can not be undefined due to the on mount and changing of selected customer effect
 
 export default WorksheetHomePage;

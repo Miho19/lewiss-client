@@ -1,8 +1,9 @@
+import type { CustomerType } from '../zod/Customer';
 import { WorksheetZodObjectArray, type WorksheetType } from '../zod/Worksheet';
 import { BACKENDBASEADDRESS } from './backendConstants';
 
-export function GETCustomerWorksheetEndpoint(): URL {
-  const url = new URL(`/customer/worksheet/`, BACKENDBASEADDRESS);
+export function GETCustomerWorksheetEndpoint(customer: CustomerType): URL {
+  const url = new URL(`/customer/${customer.id}/worksheet/`, BACKENDBASEADDRESS);
 
   return url;
 }
@@ -21,8 +22,9 @@ function generateGETCustomerWorksheetFetchOptions(): RequestInit {
   return fetchOptions;
 }
 
-async function GETCustomerWorksheet(
-  endpoint: URL = GETCustomerWorksheetEndpoint(),
+async function GETCustomerWorksheets(
+  customer: CustomerType,
+  endpoint: URL = GETCustomerWorksheetEndpoint(customer),
 ): Promise<WorksheetType[]> {
   const fetchOptions = generateGETCustomerWorksheetFetchOptions();
 
@@ -38,4 +40,4 @@ async function GETCustomerWorksheet(
   }
 }
 
-export default GETCustomerWorksheet;
+export default GETCustomerWorksheets;
