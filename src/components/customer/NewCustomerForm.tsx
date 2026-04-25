@@ -1,9 +1,9 @@
-import React, { useEffect, useState, type ChangeEvent, type SubmitEventHandler } from 'react';
+import { useState, type ChangeEvent, type SubmitEventHandler } from 'react';
 import type { CustomerCreateType } from '../../zod/Customer';
 import { UserPlus } from 'lucide-react';
 import ButtonGrey from '../common/ButtonGrey';
 import useCustomerNewMutation from '../../hooks/Customer/useCustomerNewMutation';
-import { useNavigate } from 'react-router';
+
 import handleCustomerNewFormValidation from '../../utility/CustomerNewFormValidation';
 
 export const initialCustomerNewFormData: CustomerCreateType = {

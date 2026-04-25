@@ -22,5 +22,3 @@ export const CustomerZodObjectArray = z.array(CustomerZodObject);
 
 export type CustomerCreateType = z.infer<typeof CustomerBasicInformationZodObject>;
 export type CustomerType = z.infer<typeof CustomerZodObject>;
-
-export type CustomerEditType = z.infer<typeof EditableCustomerInformationZodObject>;

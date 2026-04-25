@@ -1,7 +1,10 @@
-import { useState, type ChangeEvent, type SubmitEvent, type SubmitEventHandler } from 'react';
-import type { CustomerEditType, CustomerType } from '../../zod/Customer';
+import { useState, type ChangeEvent, type SubmitEvent } from 'react';
+import type { CustomerType } from '../../zod/Customer';
 import ButtonGrey from '../common/ButtonGrey';
 import { Save } from 'lucide-react';
+import useCustomerEditMutation from '../../hooks/Customer/useCustomerEditMutation';
+import { initialCustomerNewFormData } from './NewCustomerForm';
+import handleCustomerNewFormValidation from '../../utility/CustomerNewFormValidation';
 
 type Props = {
   customer: CustomerType;
@@ -9,16 +12,28 @@ type Props = {
 
 function CustomerEditForm(props: Props) {
   const { customer } = props;
-  const [customerFormData, setCustomerFormData] = useState<CustomerEditType>(customer);
+  const [customerFormData, setCustomerFormData] = useState<CustomerType>(customer);
+  const editCustomerMutation = useCustomerEditMutation();
+  const [customerFormDataErrorObject, setCustomerFormDataErrorObject] = useState(
+    initialCustomerNewFormData,
+  );
 
   function handleInputOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setCustomerFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function onSubmitHandler(event: SubmitEvent<HTMLFormElement>) {
+  async function onSubmitHandler(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(customerFormData);
+    if (editCustomerMutation.isPending) return;
+
+    const formDataErrors = handleCustomerNewFormValidation(customerFormData);
+    if (formDataErrors.isError) {
+      setCustomerFormDataErrorObject({ ...formDataErrors.errorObject });
+      return;
+    }
+
+    await editCustomerMutation.mutateAsync(customerFormData);
   }
 
   return (
