@@ -41,6 +41,8 @@ export const WorksheetZodObject = z.object({
   status: WorksheetStatusEnum,
 });
 
+export const WorksheetZodObjectArray = z.array(WorksheetZodObject);
+
 export type WorksheetType = z.infer<typeof WorksheetZodObject>;
 
 export type WorksheetStatusEnum = z.infer<typeof WorksheetStatusEnum>;
